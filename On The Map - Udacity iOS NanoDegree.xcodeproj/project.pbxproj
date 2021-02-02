@@ -10,6 +10,7 @@
 		1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */; };
 		1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */; };
 		1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8A25C9B5D30062E572 /* Interface Colours.swift */; };
+		1F934C8E25C9C96F0062E572 /* StuLocTableNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8D25C9C96F0062E572 /* StuLocTableNavigationViewController.swift */; };
 		1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB425C8A14800745C56 /* AppDelegate.swift */; };
 		1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */; };
 		1FD9FBBC25C8A14800745C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9FBBA25C8A14800745C56 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsTableViewController.swift; sourceTree = "<group>"; };
 		1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationTableCell.swift; sourceTree = "<group>"; };
 		1F934C8A25C9B5D30062E572 /* Interface Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface Colours.swift"; sourceTree = "<group>"; };
+		1F934C8D25C9C96F0062E572 /* StuLocTableNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuLocTableNavigationViewController.swift; sourceTree = "<group>"; };
 		1FD9FBB125C8A14800745C56 /* On The Map - Udacity iOS NanoDegree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map - Udacity iOS NanoDegree.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD9FBB425C8A14800745C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
 				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
+				1F934C8D25C9C96F0062E572 /* StuLocTableNavigationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F934C8E25C9C96F0062E572 /* StuLocTableNavigationViewController.swift in Sources */,
 				1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */,
 				1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */,
 				1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */,

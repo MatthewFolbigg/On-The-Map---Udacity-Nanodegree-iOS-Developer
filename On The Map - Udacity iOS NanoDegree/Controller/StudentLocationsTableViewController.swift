@@ -19,8 +19,6 @@ class StudentLocationsTableViewController: UIViewController {
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = interfaceColours.paleGreen
-        tableView.backgroundColor = interfaceColours.paleGreen
         ParseApiClient.getStudentLocations(completion: handleGetStudentLocations(locationsArray:error:))
     }
     
@@ -46,14 +44,21 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let studentLocation = studentLocations[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentLocationTableCell") as! StudentLocationTableCell
+        setCellUI(cell: cell, studentLocation: studentLocation)
+        return cell
+    }
+    
+    func setCellUI(cell: StudentLocationTableCell, studentLocation: StudentLocation) {
         cell.nameLabel.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         cell.locationLabel.text = studentLocation.locationString
         cell.pinImageView.tintColor = interfaceColours.red
-        cell.backgroundColor = interfaceColours.paleGreen
         cell.locationLabel.textColor = interfaceColours.blue
-        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 { return "Locations"}
+        else { return nil } 
     }
         
     

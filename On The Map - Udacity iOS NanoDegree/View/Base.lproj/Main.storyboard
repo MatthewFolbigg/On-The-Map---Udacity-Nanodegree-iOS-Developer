@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7PQ-BU-N7R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rw8-CH-JZJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,9 +43,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apE-Lx-rJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5749" y="-315"/>
+            <point key="canvasLocation" x="-5945" y="7"/>
         </scene>
-        <!--Student Locations Table View Controller-->
+        <!--On The Map-->
         <scene sceneID="Ip1-tt-ZGi">
             <objects>
                 <viewController id="7PQ-BU-N7R" customClass="StudentLocationsTableViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,8 +53,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="65" estimatedRowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-SZ-Kss">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-SZ-Kss">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentLocationTableCell" rowHeight="65" id="PlS-ED-cno" customClass="StudentLocationTableCell" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target">
@@ -64,34 +65,34 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcb-rP-zye">
-                                                    <rect key="frame" x="72" y="11.5" width="107" height="24"/>
+                                                    <rect key="frame" x="59" y="10" width="107" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-WP-Cza">
-                                                    <rect key="frame" x="20" y="13" width="40" height="39"/>
+                                                    <rect key="frame" x="20" y="10.5" width="27" height="26"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="wu4-WP-Cza" secondAttribute="height" multiplier="1:1" id="nPd-cD-tEe"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arC-7s-8BQ">
-                                                    <rect key="frame" x="72" y="36.5" width="104.5" height="19.5"/>
+                                                    <rect key="frame" x="59" y="35" width="104.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Kcb-rP-zye" firstAttribute="centerY" secondItem="wu4-WP-Cza" secondAttribute="centerY" constant="-9" id="6mj-3m-zsk"/>
+                                                <constraint firstItem="Kcb-rP-zye" firstAttribute="top" secondItem="wu4-WP-Cza" secondAttribute="top" id="6uw-Y6-tiy"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="arC-7s-8BQ" secondAttribute="trailing" constant="20" symbolic="YES" id="Aqe-1k-edo"/>
                                                 <constraint firstItem="arC-7s-8BQ" firstAttribute="top" secondItem="Kcb-rP-zye" secondAttribute="bottom" constant="1" id="CT8-ar-11F"/>
                                                 <constraint firstItem="Kcb-rP-zye" firstAttribute="leading" secondItem="wu4-WP-Cza" secondAttribute="trailing" constant="12" id="G4V-cy-mo0"/>
                                                 <constraint firstItem="arC-7s-8BQ" firstAttribute="leading" secondItem="Kcb-rP-zye" secondAttribute="leading" id="Ic8-c4-QDo"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kcb-rP-zye" secondAttribute="trailing" constant="20" symbolic="YES" id="Lmx-14-1l3"/>
-                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="height" secondItem="bTe-Uw-Qlw" secondAttribute="height" constant="-25" id="eyZ-UR-Aiz"/>
+                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="height" secondItem="bTe-Uw-Qlw" secondAttribute="height" constant="-38" id="eyZ-UR-Aiz"/>
                                                 <constraint firstItem="wu4-WP-Cza" firstAttribute="leading" secondItem="bTe-Uw-Qlw" secondAttribute="leadingMargin" id="koS-mG-VvY"/>
-                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="centerY" secondItem="bTe-Uw-Qlw" secondAttribute="centerY" id="ve7-tZ-0hw"/>
+                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="centerY" secondItem="bTe-Uw-Qlw" secondAttribute="centerY" constant="-9" id="ve7-tZ-0hw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -116,16 +117,74 @@
                             <constraint firstItem="xj7-YJ-ain" firstAttribute="bottom" secondItem="pOs-SZ-Kss" secondAttribute="bottom" id="x0G-9L-M0G"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="On The Map" id="vvn-36-ErL"/>
                     <connections>
                         <outlet property="tableView" destination="pOs-SZ-Kss" id="aNG-4K-Plo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOM-GE-D8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4917.3913043478269" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="-3098.5507246376815" y="-315.40178571428572"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="yer-Pd-d3Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pj0-rQ-tXN" customClass="LocationTableNavigationViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" id="Rkc-2g-i3H">
+                        <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HDy-5R-KMc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7PQ-BU-N7R" kind="relationship" relationship="rootViewController" id="cLt-O9-re2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nMd-Yh-Sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4008.6956521739135" y="-315.40178571428572"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="3TF-IO-tAT">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rw8-CH-JZJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gRD-Pl-NLR">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wKS-Af-QxP" kind="relationship" relationship="viewControllers" id="48E-ZT-3kU"/>
+                        <segue destination="Pj0-rQ-tXN" kind="relationship" relationship="viewControllers" id="Jkp-bt-eys"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypg-bm-RVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4942" y="7"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="0QA-Xv-sqJ">
+            <objects>
+                <navigationController id="wKS-Af-QxP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="x8V-25-na4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gi1-yj-dvS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rd3-5f-vs3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4009" y="379"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="mappin.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
