@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */; };
+		1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */; };
+		1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8A25C9B5D30062E572 /* Interface Colours.swift */; };
 		1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB425C8A14800745C56 /* AppDelegate.swift */; };
 		1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */; };
 		1FD9FBBC25C8A14800745C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9FBBA25C8A14800745C56 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsTableViewController.swift; sourceTree = "<group>"; };
+		1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationTableCell.swift; sourceTree = "<group>"; };
+		1F934C8A25C9B5D30062E572 /* Interface Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface Colours.swift"; sourceTree = "<group>"; };
 		1FD9FBB125C8A14800745C56 /* On The Map - Udacity iOS NanoDegree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map - Udacity iOS NanoDegree.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD9FBB425C8A14800745C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +49,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F10C9B925C993D70062ED55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9FBBA25C8A14800745C56 /* Main.storyboard */,
+				1FD9FBBF25C8A14900745C56 /* LaunchScreen.storyboard */,
+				1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */,
+				1F934C8A25C9B5D30062E572 /* Interface Colours.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F10C9BE25C995E10062ED55 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
+				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1FD9FBA825C8A14800745C56 = {
 			isa = PBXGroup;
 			children = (
@@ -64,11 +90,10 @@
 			children = (
 				1FD9FBB425C8A14800745C56 /* AppDelegate.swift */,
 				1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */,
-				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
-				1FD9FBBA25C8A14800745C56 /* Main.storyboard */,
+				1F10C9BE25C995E10062ED55 /* Controller */,
+				1F10C9B925C993D70062ED55 /* View */,
 				1FD9FBD025C9676F00745C56 /* Model */,
 				1FD9FBBD25C8A14900745C56 /* Assets.xcassets */,
-				1FD9FBBF25C8A14900745C56 /* LaunchScreen.storyboard */,
 				1FD9FBC225C8A14900745C56 /* Info.plist */,
 			);
 			path = "On The Map - Udacity iOS NanoDegree";
@@ -163,9 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */,
+				1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */,
+				1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */,
 				1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */,
 				1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */,
 				1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */,
+				1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */,
 				1FD9FBD225C967C200745C56 /* StudentLocationsResults.swift in Sources */,
 				1FD9FBCE25C961DC00745C56 /* ParseApiClient.swift in Sources */,
 			);

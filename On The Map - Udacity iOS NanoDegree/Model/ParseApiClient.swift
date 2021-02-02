@@ -39,6 +39,7 @@ class ParseApiClient {
             guard let data = data else {
                 //TODO: Handle failure to get response here
                 print("failure to get response from getStudentLocations")
+                if let error = error { print(error) }
                 return
             }
             let decoder = JSONDecoder()
@@ -49,9 +50,9 @@ class ParseApiClient {
                     completion(studentLocations, nil)
                 }
             } catch {
-                print("failure to decode to StudentLocationsResults")
-                print(error.localizedDescription)
                 //TODO: Handle failure to decode here (Unexpected response object)
+                print("failure to decode to StudentLocationsResults")
+                print(error)
             }
         }
         task.resume()

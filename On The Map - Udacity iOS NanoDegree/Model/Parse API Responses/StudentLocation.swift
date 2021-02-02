@@ -9,18 +9,18 @@ import Foundation
 
 struct StudentLocation: Codable {
    
-    let firstName: String?
-    let lastName: String?
-    let longitude: Double?
-    let latitude: Double?
-    let locationString: String?
-    let url: String?
-    let identifierKey: String?
-    let objectID: String?
-    let createdAt: String?
-    let updatedAt: String?
+    let firstName: String
+    let lastName: String
+    let longitude: Double
+    let latitude: Double
+    let locationString: String
+    let url: String
+    let identifierKey: String
+    let objectID: String
+    let createdAt: String
+    let updatedAt: String
     
-    enum codingKey: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         //Explicitly added all case even to some aren't required to prevend having to refer back to API documentation if any names are refactored in the future
         case firstName = "firstName"
         case lastName = "lastName"
@@ -29,7 +29,7 @@ struct StudentLocation: Codable {
         case locationString = "mapString"
         case url = "mediaURL"
         case identifierKey = "uniqueKey"
-        case objectID = "objectID"
+        case objectID = "objectId"
         case createdAt = "createdAt"
         case updatedAt = "updatedAt"
     }

@@ -11,7 +11,7 @@ struct StudentLocationsResults: Codable {
     
     let studentLocations: [StudentLocation]
     
-    enum codingKey: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case studentLocations = "results"
     }
     
