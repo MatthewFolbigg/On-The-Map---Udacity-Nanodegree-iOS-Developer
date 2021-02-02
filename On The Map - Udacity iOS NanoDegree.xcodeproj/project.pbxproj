@@ -13,6 +13,9 @@
 		1FD9FBBE25C8A14900745C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9FBBD25C8A14900745C56 /* Assets.xcassets */; };
 		1FD9FBC125C8A14900745C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9FBBF25C8A14900745C56 /* LaunchScreen.storyboard */; };
 		1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */; };
+		1FD9FBCE25C961DC00745C56 /* ParseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBCD25C961DC00745C56 /* ParseApiClient.swift */; };
+		1FD9FBD225C967C200745C56 /* StudentLocationsResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBD125C967C200745C56 /* StudentLocationsResults.swift */; };
+		1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBD725C968D000745C56 /* StudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		1FD9FBC025C8A14900745C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FD9FBC225C8A14900745C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1FD9FBCD25C961DC00745C56 /* ParseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseApiClient.swift; sourceTree = "<group>"; };
+		1FD9FBD125C967C200745C56 /* StudentLocationsResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsResults.swift; sourceTree = "<group>"; };
+		1FD9FBD725C968D000745C56 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,30 @@
 				1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */,
 				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
 				1FD9FBBA25C8A14800745C56 /* Main.storyboard */,
+				1FD9FBD025C9676F00745C56 /* Model */,
 				1FD9FBBD25C8A14900745C56 /* Assets.xcassets */,
 				1FD9FBBF25C8A14900745C56 /* LaunchScreen.storyboard */,
 				1FD9FBC225C8A14900745C56 /* Info.plist */,
 			);
 			path = "On The Map - Udacity iOS NanoDegree";
+			sourceTree = "<group>";
+		};
+		1FD9FBD025C9676F00745C56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9FBCD25C961DC00745C56 /* ParseApiClient.swift */,
+				1FD9FBD425C967CB00745C56 /* Parse API Responses */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1FD9FBD425C967CB00745C56 /* Parse API Responses */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9FBD125C967C200745C56 /* StudentLocationsResults.swift */,
+				1FD9FBD725C968D000745C56 /* StudentLocation.swift */,
+			);
+			path = "Parse API Responses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */,
 				1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */,
 				1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */,
 				1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */,
+				1FD9FBD225C967C200745C56 /* StudentLocationsResults.swift in Sources */,
+				1FD9FBCE25C961DC00745C56 /* ParseApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
