@@ -21,7 +21,6 @@ class StudentLocationsTableViewController: UIViewController {
         super.viewDidLoad()
         updateStudentLocations()
         setupTableViewPullToRefresh()
-        setNavigationBarButtons()
     }
     
     //MARK: Network Requests
@@ -38,23 +37,6 @@ class StudentLocationsTableViewController: UIViewController {
         }
         self.studentLocations = locations
         self.tableView.reloadData()
-    }
-    
-    //MARK: Bar Buttons
-    func setNavigationBarButtons() {
-        let logoutButton = getLogoutButton()
-        self.navigationItem.leftBarButtonItem = logoutButton
-    }
-    
-    func getLogoutButton() -> UIBarButtonItem {
-        let image = UIImage(systemName: "arrow.uturn.backward.circle")
-        let button = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(logoutButtonDidTapped))
-        return button
-    }
-    
-    @objc func logoutButtonDidTapped() {
-        print("Log OUT")
-       
     }
     
 }

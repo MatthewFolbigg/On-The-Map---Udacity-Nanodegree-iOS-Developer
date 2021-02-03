@@ -12,7 +12,24 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBarButtons()
+    }
+    
+    func setNavigationBarButtons() {
         self.navigationItem.hidesBackButton = true
+        let logoutButton = getLogoutButton()
+        self.navigationItem.leftBarButtonItem = logoutButton
+    }
+    
+    func getLogoutButton() -> UIBarButtonItem {
+        let image = UIImage(systemName: "arrow.uturn.backward.circle")
+        let button = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(logoutButtonDidTapped))
+        return button
+    }
+    
+    @objc func logoutButtonDidTapped() {
+        print("Log OUT")
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
