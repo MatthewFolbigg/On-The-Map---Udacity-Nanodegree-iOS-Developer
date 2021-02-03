@@ -12,4 +12,5 @@ class StudentLocationTableCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var pinImageView: UIImageView!
+    @IBOutlet var arrowImageView: UIImageView!
 }

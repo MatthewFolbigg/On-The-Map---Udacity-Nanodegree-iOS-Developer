@@ -19,6 +19,12 @@ class StudentLocationsTableViewController: UIViewController {
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateStudentLocations()
+        setupTableViewPullToRefresh()
+    }
+    
+    //MARK: Network Requests
+    func updateStudentLocations() {
         ParseApiClient.getStudentLocations(completion: handleGetStudentLocations(locationsArray:error:))
     }
     
@@ -54,12 +60,33 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationController = storyboard?.instantiateViewController(identifier: "moreDetailViewController") as! MoreDetailViewController
+        destinationController.studentLocation = studentLocations[indexPath.row]
+        destinationController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(destinationController, animated: true)
+    }
+    
     //MARK: Cell UI
     func setCellUI(cell: StudentLocationTableCell, studentLocation: StudentLocation) {
         cell.nameLabel.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         cell.locationLabel.text = studentLocation.locationString
         cell.pinImageView.tintColor = interfaceColours.red
+        cell.arrowImageView.tintColor = interfaceColours.blue
         cell.locationLabel.textColor = interfaceColours.blue
+    }
+    
+    //MARK: Pull to Refresh
+    func setupTableViewPullToRefresh() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        updateStudentLocations()
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 
 }

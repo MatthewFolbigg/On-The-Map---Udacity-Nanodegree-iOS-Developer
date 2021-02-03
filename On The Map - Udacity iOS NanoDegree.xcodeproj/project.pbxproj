@@ -20,6 +20,7 @@
 		1FD9FBCE25C961DC00745C56 /* ParseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBCD25C961DC00745C56 /* ParseApiClient.swift */; };
 		1FD9FBD225C967C200745C56 /* StudentLocationsResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBD125C967C200745C56 /* StudentLocationsResults.swift */; };
 		1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBD725C968D000745C56 /* StudentLocation.swift */; };
+		1FDDDD4025CAC2AD00B65AB0 /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1FD9FBCD25C961DC00745C56 /* ParseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseApiClient.swift; sourceTree = "<group>"; };
 		1FD9FBD125C967C200745C56 /* StudentLocationsResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsResults.swift; sourceTree = "<group>"; };
 		1FD9FBD725C968D000745C56 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			children = (
 				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
 				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
+				1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */,
 				1F934C8D25C9C96F0062E572 /* StuLocTableNavigationViewController.swift */,
 			);
 			path = Controller;
@@ -193,6 +196,7 @@
 				1F934C8E25C9C96F0062E572 /* StuLocTableNavigationViewController.swift in Sources */,
 				1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */,
 				1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */,
+				1FDDDD4025CAC2AD00B65AB0 /* MoreDetailViewController.swift in Sources */,
 				1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */,
 				1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */,
 				1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */,
