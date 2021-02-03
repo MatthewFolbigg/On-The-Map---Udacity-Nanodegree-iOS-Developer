@@ -42,6 +42,11 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
         studentLocations.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 { return "Locations"}
+        else { return nil }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let studentLocation = studentLocations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentLocationTableCell") as! StudentLocationTableCell
@@ -49,17 +54,12 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
         return cell
     }
     
+    //MARK: Cell UI
     func setCellUI(cell: StudentLocationTableCell, studentLocation: StudentLocation) {
         cell.nameLabel.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         cell.locationLabel.text = studentLocation.locationString
         cell.pinImageView.tintColor = interfaceColours.red
         cell.locationLabel.textColor = interfaceColours.blue
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 { return "Locations"}
-        else { return nil } 
-    }
-        
-    
+
 }
