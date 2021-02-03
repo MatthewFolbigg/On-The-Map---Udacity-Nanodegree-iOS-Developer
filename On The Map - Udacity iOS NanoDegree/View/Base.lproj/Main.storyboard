@@ -57,13 +57,22 @@
                                     <action selector="loginButtonDidTapped" destination="9xe-4A-hPH" eventType="touchUpInside" id="Koi-1m-TX9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPb-RZ-Odp">
+                                <rect key="frame" x="192" y="792" width="30" height="30"/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipButtonDidTapped" destination="9xe-4A-hPH" eventType="touchUpInside" id="yVs-WG-A4D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ODx-y2-Iwn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="SPb-RZ-Odp" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="7wC-zl-AFn"/>
                             <constraint firstItem="nHU-5l-q2a" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="J7k-Xj-0Au"/>
                             <constraint firstItem="vxV-9F-NwJ" firstAttribute="centerY" secondItem="1iF-HF-Ysj" secondAttribute="centerY" constant="-100" id="JCZ-yd-bRh"/>
                             <constraint firstItem="vxV-9F-NwJ" firstAttribute="leading" secondItem="ODx-y2-Iwn" secondAttribute="leading" id="Ouo-9g-dKr"/>
+                            <constraint firstItem="ODx-y2-Iwn" firstAttribute="bottom" secondItem="SPb-RZ-Odp" secondAttribute="bottom" constant="40" id="SNk-Sh-eeg"/>
                             <constraint firstItem="vxV-9F-NwJ" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="WdN-U5-uzN"/>
                             <constraint firstItem="nHU-5l-q2a" firstAttribute="top" secondItem="vxV-9F-NwJ" secondAttribute="bottom" constant="80" id="eSJ-up-Bzb"/>
                             <constraint firstItem="ODx-y2-Iwn" firstAttribute="trailing" secondItem="vxV-9F-NwJ" secondAttribute="trailing" id="mwI-ey-GEd"/>
@@ -80,6 +89,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apE-Lx-rJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4261" y="7"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="KMc-PD-zpD">
+            <objects>
+                <viewController storyboardIdentifier="AccountViewController" id="cG5-eO-tjX" customClass="AccountViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IgG-kR-VUl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-U1-MC5">
+                                <rect key="frame" x="183" y="433" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonDidTapped" destination="cG5-eO-tjX" eventType="touchUpInside" id="dYh-WM-mvo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tki-3O-Ny7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VcG-U1-MC5" firstAttribute="centerX" secondItem="IgG-kR-VUl" secondAttribute="centerX" id="sYg-yr-65d"/>
+                            <constraint firstItem="VcG-U1-MC5" firstAttribute="centerY" secondItem="IgG-kR-VUl" secondAttribute="centerY" id="ww9-Hk-U44"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oPH-b4-DT3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u8w-iR-aHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3349" y="779"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="Ip1-tt-ZGi">
@@ -257,6 +295,7 @@
                     <connections>
                         <segue destination="xB6-kz-ZPP" kind="relationship" relationship="viewControllers" id="vUm-Oy-aJ9"/>
                         <segue destination="7PQ-BU-N7R" kind="relationship" relationship="viewControllers" id="flx-Wk-zr9"/>
+                        <segue destination="cG5-eO-tjX" kind="show" identifier="accountOrLoginSegue" id="z5c-ea-Ol9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypg-bm-RVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

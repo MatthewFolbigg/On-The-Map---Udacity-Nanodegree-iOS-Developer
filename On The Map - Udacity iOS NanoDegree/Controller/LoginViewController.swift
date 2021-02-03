@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     //MARK: Varibales
-    var userSession: udacityLoginResponse?
+    //var userSession: udacityLoginResponse?
     
     //MARK: Life Cycle
     override func viewDidLoad() {
@@ -26,16 +26,18 @@ class LoginViewController: UIViewController {
     
     //MARK: Network Requests
     func login() {
-        userSession = nil
+        UdacityApiClient.currentLogin = nil
         let user = createUserFromTextFields()
         UdacityApiClient.login(user: user, completion: handelLoginResponse(loginSuccess: error:))
     }
     
     //MARK: Network Completeion Handelers
     func handelLoginResponse(loginSuccess: Bool, error: Error?) -> Void {
-        guard let loginResponse = UdacityApiClient.currentLogin else { return } //TODO: Handle login failure
-        self.userSession = loginResponse
-        performLoginSegue()
+        if UdacityApiClient.currentLogin == nil {
+            return //TODO: Handle login failure
+        } else {
+            performLoginSegue()
+        }
     }
     
     //MARK: Button Actions
@@ -45,11 +47,16 @@ class LoginViewController: UIViewController {
     }
     
     func performLoginSegue() {
-        guard let userSession = userSession else { return }
-        if userSession.account.registered {
-            let destination = (storyboard?.instantiateViewController(identifier: "mainTabView"))!
-            navigationController?.pushViewController(destination, animated: true)
-        }
+        let destination = (storyboard?.instantiateViewController(identifier: "mainTabView"))!
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    @IBAction func skipButtonDidTapped() {
+        resignAllTextFields()
+        UdacityApiClient.currentLogin = nil
+        let destination = (storyboard?.instantiateViewController(identifier: "mainTabView"))!
+        navigationController?.pushViewController(destination, animated: true)
+        //TODO: Add Warning about no login
     }
     
 }
