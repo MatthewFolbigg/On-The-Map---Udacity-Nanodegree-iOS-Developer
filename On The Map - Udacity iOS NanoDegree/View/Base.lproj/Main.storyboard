@@ -280,12 +280,12 @@
             </objects>
             <point key="canvasLocation" x="-1302.8985507246377" y="-315.40178571428572"/>
         </scene>
-        <!--On The Map-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="3TF-IO-tAT">
             <objects>
                 <tabBarController storyboardIdentifier="mainTabView" automaticallyAdjustsScrollViewInsets="NO" id="rw8-CH-JZJ" customClass="MainTabBarController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="On The Map" largeTitleDisplayMode="always" id="nTb-LR-bcc"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="nTb-LR-bcc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gRD-Pl-NLR">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
