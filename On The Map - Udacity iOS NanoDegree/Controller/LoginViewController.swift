@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTextFields()
-        self.navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: Network Requests

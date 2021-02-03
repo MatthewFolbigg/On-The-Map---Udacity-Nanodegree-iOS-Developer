@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LocationTableNavigationViewController: UINavigationController {
+class MainNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBar.prefersLargeTitles = true
