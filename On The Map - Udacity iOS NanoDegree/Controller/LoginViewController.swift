@@ -28,15 +28,13 @@ class LoginViewController: UIViewController {
     func login() {
         userSession = nil
         let user = createUserFromTextFields()
-        UdacityApiClient.login(user: user, completion: handelLoginResponse(loginResponse: error:))
+        UdacityApiClient.login(user: user, completion: handelLoginResponse(loginSuccess: error:))
     }
     
     //MARK: Network Completeion Handelers
-    func handelLoginResponse(loginResponse: udacityLoginResponse?, error: Error?) -> Void {
-        guard let loginResponse = loginResponse else { return } //TODO: Handle login failure
+    func handelLoginResponse(loginSuccess: Bool, error: Error?) -> Void {
+        guard let loginResponse = UdacityApiClient.currentLogin else { return } //TODO: Handle login failure
         self.userSession = loginResponse
-        print(self.userSession?.account.registered)
-        print(self.userSession?.session.id)
         performLoginSegue()
     }
     
