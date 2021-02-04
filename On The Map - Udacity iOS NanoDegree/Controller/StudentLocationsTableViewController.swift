@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class StudentLocationsTableViewController: UIViewController {
+class StudentLocationsTableViewController: UITableViewController {
     
     //MARK: Outlets & UI Items
-    @IBOutlet var tableView: UITableView!
+    //@IBOutlet var tableView: UITableView!
     var accountButton: UIBarButtonItem!
     var addPinButton: UIBarButtonItem!
     
@@ -99,28 +99,26 @@ class StudentLocationsTableViewController: UIViewController {
             print("ADD COMPLETE")
         }
     }
-}
 
-//MARK: Table View
-extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewDataSource {
-        
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    //MARK: Table View
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         studentLocations.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 { return "Locations"}
         else { return nil }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let studentLocation = studentLocations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentLocationTableCell") as! StudentLocationTableCell
         setCellUI(cell: cell, studentLocation: studentLocation)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destinationController = storyboard?.instantiateViewController(identifier: "moreDetailViewController") as! MoreDetailViewController
         destinationController.studentLocation = studentLocations[indexPath.row]
         destinationController.hidesBottomBarWhenPushed = true

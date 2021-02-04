@@ -183,101 +183,87 @@
             <point key="canvasLocation" x="-4522" y="751"/>
         </scene>
         <!--On The Map-->
-        <scene sceneID="Ip1-tt-ZGi">
+        <scene sceneID="ibR-CA-afd">
             <objects>
-                <viewController id="7PQ-BU-N7R" customClass="StudentLocationsTableViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qEH-z3-kkZ">
+                <tableViewController modalPresentationStyle="fullScreen" id="Fuy-p3-sot" customClass="StudentLocationsTableViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Vb-Dm-JGx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-SZ-Kss">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentLocationTableCell" rowHeight="65" id="PlS-ED-cno" customClass="StudentLocationTableCell" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PlS-ED-cno" id="bTe-Uw-Qlw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcb-rP-zye">
-                                                    <rect key="frame" x="59" y="10" width="107" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-WP-Cza">
-                                                    <rect key="frame" x="20" y="10.5" width="27" height="26"/>
-                                                    <color key="tintColor" systemColor="systemOrangeColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="wu4-WP-Cza" secondAttribute="height" multiplier="1:1" id="nPd-cD-tEe"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arC-7s-8BQ">
-                                                    <rect key="frame" x="59" y="35" width="104.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8fN-Jf-fK8">
-                                                    <rect key="frame" x="384" y="7" width="10" height="51.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="vwA-7e-aSQ"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Kcb-rP-zye" firstAttribute="top" secondItem="wu4-WP-Cza" secondAttribute="top" id="6uw-Y6-tiy"/>
-                                                <constraint firstItem="8fN-Jf-fK8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="arC-7s-8BQ" secondAttribute="trailing" constant="8" id="Aqe-1k-edo"/>
-                                                <constraint firstItem="arC-7s-8BQ" firstAttribute="top" secondItem="Kcb-rP-zye" secondAttribute="bottom" constant="1" id="CT8-ar-11F"/>
-                                                <constraint firstItem="Kcb-rP-zye" firstAttribute="leading" secondItem="wu4-WP-Cza" secondAttribute="trailing" constant="12" id="G4V-cy-mo0"/>
-                                                <constraint firstItem="arC-7s-8BQ" firstAttribute="leading" secondItem="Kcb-rP-zye" secondAttribute="leading" id="Ic8-c4-QDo"/>
-                                                <constraint firstItem="8fN-Jf-fK8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kcb-rP-zye" secondAttribute="trailing" constant="8" symbolic="YES" id="Lmx-14-1l3"/>
-                                                <constraint firstItem="8fN-Jf-fK8" firstAttribute="height" secondItem="bTe-Uw-Qlw" secondAttribute="height" constant="-10" id="MSb-d8-5Ju"/>
-                                                <constraint firstAttribute="trailing" secondItem="8fN-Jf-fK8" secondAttribute="trailing" constant="20" id="QS9-lc-GeB"/>
-                                                <constraint firstItem="8fN-Jf-fK8" firstAttribute="centerY" secondItem="bTe-Uw-Qlw" secondAttribute="centerY" id="doE-Eu-xdE"/>
-                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="height" secondItem="bTe-Uw-Qlw" secondAttribute="height" constant="-38" id="eyZ-UR-Aiz"/>
-                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="leading" secondItem="bTe-Uw-Qlw" secondAttribute="leadingMargin" id="koS-mG-VvY"/>
-                                                <constraint firstItem="wu4-WP-Cza" firstAttribute="centerY" secondItem="bTe-Uw-Qlw" secondAttribute="centerY" constant="-9" id="ve7-tZ-0hw"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="arrowImageView" destination="8fN-Jf-fK8" id="IJu-2k-r6a"/>
-                                            <outlet property="locationLabel" destination="arC-7s-8BQ" id="2gc-oU-At7"/>
-                                            <outlet property="nameLabel" destination="Kcb-rP-zye" id="VLK-D0-bgB"/>
-                                            <outlet property="pinImageView" destination="wu4-WP-Cza" id="Z0X-q7-2aU"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="7PQ-BU-N7R" id="OUP-3a-7Ne"/>
-                                    <outlet property="delegate" destination="7PQ-BU-N7R" id="k7C-KT-OVn"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="xj7-YJ-ain"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="pOs-SZ-Kss" firstAttribute="top" secondItem="xj7-YJ-ain" secondAttribute="top" id="3Kt-Ok-cep"/>
-                            <constraint firstItem="xj7-YJ-ain" firstAttribute="trailing" secondItem="pOs-SZ-Kss" secondAttribute="trailing" id="R0i-Vv-dA5"/>
-                            <constraint firstItem="pOs-SZ-Kss" firstAttribute="leading" secondItem="xj7-YJ-ain" secondAttribute="leading" id="pMi-5a-mH6"/>
-                            <constraint firstItem="xj7-YJ-ain" firstAttribute="bottom" secondItem="pOs-SZ-Kss" secondAttribute="bottom" id="x0G-9L-M0G"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="On The Map" id="vvn-36-ErL"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentLocationTableCell" rowHeight="65" id="m2Q-sl-6ko" customClass="StudentLocationTableCell" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m2Q-sl-6ko" id="fAn-QK-Ct9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-pB-2Cz">
+                                            <rect key="frame" x="59" y="10" width="107" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-vk-0tH">
+                                            <rect key="frame" x="20" y="10.5" width="27" height="26"/>
+                                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="QWs-vk-0tH" secondAttribute="height" multiplier="1:1" id="I0o-4D-oof"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTE-QT-3S3">
+                                            <rect key="frame" x="59" y="35" width="104.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xGb-uZ-BbG">
+                                            <rect key="frame" x="384" y="7" width="10" height="51.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="10" id="7dH-o6-fyr"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QWs-vk-0tH" firstAttribute="centerY" secondItem="fAn-QK-Ct9" secondAttribute="centerY" constant="-9" id="0Jr-Dn-TUb"/>
+                                        <constraint firstAttribute="trailing" secondItem="xGb-uZ-BbG" secondAttribute="trailing" constant="20" id="ARf-cC-pOs"/>
+                                        <constraint firstItem="aTE-QT-3S3" firstAttribute="top" secondItem="NEF-pB-2Cz" secondAttribute="bottom" constant="1" id="ElS-dN-eIk"/>
+                                        <constraint firstItem="aTE-QT-3S3" firstAttribute="leading" secondItem="NEF-pB-2Cz" secondAttribute="leading" id="SsR-Dl-abc"/>
+                                        <constraint firstItem="QWs-vk-0tH" firstAttribute="leading" secondItem="fAn-QK-Ct9" secondAttribute="leadingMargin" id="eox-3c-w00"/>
+                                        <constraint firstItem="xGb-uZ-BbG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aTE-QT-3S3" secondAttribute="trailing" constant="8" id="hSZ-nL-6Bz"/>
+                                        <constraint firstItem="NEF-pB-2Cz" firstAttribute="leading" secondItem="QWs-vk-0tH" secondAttribute="trailing" constant="12" id="jKm-v9-YLB"/>
+                                        <constraint firstItem="QWs-vk-0tH" firstAttribute="height" secondItem="fAn-QK-Ct9" secondAttribute="height" constant="-38" id="m15-Ba-Ba6"/>
+                                        <constraint firstItem="xGb-uZ-BbG" firstAttribute="height" secondItem="fAn-QK-Ct9" secondAttribute="height" constant="-10" id="mxC-Fe-XT4"/>
+                                        <constraint firstItem="xGb-uZ-BbG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NEF-pB-2Cz" secondAttribute="trailing" constant="8" symbolic="YES" id="nfn-lR-lbd"/>
+                                        <constraint firstItem="xGb-uZ-BbG" firstAttribute="centerY" secondItem="fAn-QK-Ct9" secondAttribute="centerY" id="w52-hK-5f8"/>
+                                        <constraint firstItem="NEF-pB-2Cz" firstAttribute="top" secondItem="QWs-vk-0tH" secondAttribute="top" id="w7c-H3-16m"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="arrowImageView" destination="xGb-uZ-BbG" id="Gva-qK-Sge"/>
+                                    <outlet property="locationLabel" destination="aTE-QT-3S3" id="peN-lW-mYa"/>
+                                    <outlet property="nameLabel" destination="NEF-pB-2Cz" id="TvP-G1-LYP"/>
+                                    <outlet property="pinImageView" destination="QWs-vk-0tH" id="68n-ur-cwA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fuy-p3-sot" id="zAe-nP-xRT"/>
+                            <outlet property="delegate" destination="Fuy-p3-sot" id="y2L-uw-zRQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="On The Map" id="G4C-Xa-Jux"/>
                     <connections>
-                        <outlet property="tableView" destination="pOs-SZ-Kss" id="aNG-4K-Plo"/>
-                        <segue destination="wWN-ee-aiy" kind="show" identifier="cellDetail" id="cWW-3h-2fD"/>
+                        <segue destination="wWN-ee-aiy" kind="show" id="ACu-SS-gNF"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SOM-GE-D8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HNL-fh-bEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1316" y="-315"/>
+            <point key="canvasLocation" x="-1316" y="-316"/>
         </scene>
         <!--More Detail View Controller-->
         <scene sceneID="EQV-Mu-tzL">
             <objects>
-                <viewController storyboardIdentifier="moreDetailViewController" id="wWN-ee-aiy" customClass="MoreDetailViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="moreDetailViewController" modalPresentationStyle="fullScreen" id="wWN-ee-aiy" customClass="MoreDetailViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8aO-pb-Z9A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="508-2b-Mg2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-297" y="-315"/>
+            <point key="canvasLocation" x="-412" y="-316"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3TF-IO-tAT">
@@ -356,7 +342,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="hkw-df-2MP" kind="relationship" relationship="viewControllers" id="vUm-Oy-aJ9"/>
-                        <segue destination="sqA-C0-Dh3" kind="relationship" relationship="viewControllers" id="flx-Wk-zr9"/>
+                        <segue destination="xzg-Va-GLJ" kind="relationship" relationship="viewControllers" id="hMY-wU-K5G"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypg-bm-RVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -416,23 +402,23 @@
             <point key="canvasLocation" x="-2226.0869565217395" y="377.67857142857139"/>
         </scene>
         <!--List-->
-        <scene sceneID="qso-kd-flg">
+        <scene sceneID="hli-CR-es6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqA-C0-Dh3" customClass="tabNavigationController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="wT8-ej-eCh"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xzg-Va-GLJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="0ft-QN-gxM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="cnt-pd-S2O">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="DhH-Qe-mET">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7PQ-BU-N7R" kind="relationship" relationship="rootViewController" id="d6n-YL-m8m"/>
+                        <segue destination="Fuy-p3-sot" kind="relationship" relationship="rootViewController" id="Pwf-cP-DVU"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I5t-D6-X5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QMn-ON-cbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226.0869565217395" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="-2226" y="-316"/>
         </scene>
     </scenes>
     <resources>
