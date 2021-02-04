@@ -11,7 +11,7 @@
 		1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */; };
 		1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8A25C9B5D30062E572 /* Interface Colours.swift */; };
 		1F934C8E25C9C96F0062E572 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */; };
-		1FD78E9125CB1CB600238291 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9025CB1CB600238291 /* MainTabBarController.swift */; };
+		1FD78E9125CB1CB600238291 /* MainTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9025CB1CB600238291 /* MainTabNavigationController.swift */; };
 		1FD78E9425CB3E3D00238291 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9325CB3E3D00238291 /* AccountViewController.swift */; };
 		1FD78E9725CB4D9100238291 /* StudentLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */; };
 		1FD78E9F25CC343F00238291 /* Udacity User Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9E25CC343F00238291 /* Udacity User Data.swift */; };
@@ -35,7 +35,7 @@
 		1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationTableCell.swift; sourceTree = "<group>"; };
 		1F934C8A25C9B5D30062E572 /* Interface Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface Colours.swift"; sourceTree = "<group>"; };
 		1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
-		1FD78E9025CB1CB600238291 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1FD78E9025CB1CB600238291 /* MainTabNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabNavigationController.swift; sourceTree = "<group>"; };
 		1FD78E9325CB3E3D00238291 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationMapViewController.swift; sourceTree = "<group>"; };
 		1FD78E9E25CC343F00238291 /* Udacity User Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Udacity User Data.swift"; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			children = (
 				1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */,
 				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
-				1FD78E9025CB1CB600238291 /* MainTabBarController.swift */,
+				1FD78E9025CB1CB600238291 /* MainTabNavigationController.swift */,
 				1FD78E9325CB3E3D00238291 /* AccountViewController.swift */,
 				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
 				1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */,
@@ -225,7 +225,7 @@
 				1F934C8E25C9C96F0062E572 /* MainNavigationViewController.swift in Sources */,
 				1FD9FBD825C968D000745C56 /* StudentLocation.swift in Sources */,
 				1FD78E9425CB3E3D00238291 /* AccountViewController.swift in Sources */,
-				1FD78E9125CB1CB600238291 /* MainTabBarController.swift in Sources */,
+				1FD78E9125CB1CB600238291 /* MainTabNavigationController.swift in Sources */,
 				1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */,
 				1FDDDD4025CAC2AD00B65AB0 /* MoreDetailViewController.swift in Sources */,
 				1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */,

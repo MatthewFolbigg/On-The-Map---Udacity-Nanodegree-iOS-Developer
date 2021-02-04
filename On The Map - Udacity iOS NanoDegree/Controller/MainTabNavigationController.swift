@@ -8,29 +8,18 @@
 import Foundation
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class tabNavigationController: UINavigationController {
 
     var accountButton: UIBarButtonItem!
     var addPinButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setButtonsForLoginStatus()
-        navigationItem.titleView?.isHidden = true
-    }
-
-    func setNavigationBarButtons() {
-        self.navigationItem.hidesBackButton = true
-
-        accountButton = getAccountButton()
-        self.navigationItem.leftBarButtonItem = accountButton
-        addPinButton = getAddPinButton()
-        self.navigationItem.rightBarButtonItem = addPinButton
+        
     }
 
     func setUpBarButtons() {
@@ -38,7 +27,6 @@ class MainTabBarController: UITabBarController {
         self.navigationItem.leftBarButtonItem = accountButton
         addPinButton = getAddPinButton()
         self.navigationItem.rightBarButtonItem = addPinButton
-
         setButtonsForLoginStatus()
     }
 
@@ -81,8 +69,7 @@ class MainTabBarController: UITabBarController {
         guard let login = UdacityApiClient.currentLogin?.account else { return }
         let testLocation = StudentLocation(firstName: user.firstName, lastName: user.lastName, longitude: 74.2, latitude: 7.42, locationString: "United Kingdom", url: "www.apple.com", identifierKey: login.key, objectID: "Test", createdAt: "Test", updatedAt: "Test")
         ParseApiClient.postStudentLocation(studentLocation: testLocation) { (error) in
-        print("ADD COMPLETE")
-        
+            print("ADD COMPLETE")
         }
     }
 

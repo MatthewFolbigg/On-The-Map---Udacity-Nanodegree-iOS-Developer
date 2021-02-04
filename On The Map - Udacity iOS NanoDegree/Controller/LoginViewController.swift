@@ -24,16 +24,7 @@ class LoginViewController: UIViewController {
         setUpTextFields()
         setUI()
     }
-    
-    //MARK: UI Setup
-    func setUI() {
-        view.backgroundColor = InterfaceColours.udacityBackground
-        loginButton.layer.cornerRadius = 10
-        loginButton.backgroundColor = InterfaceColours.udacityBlue
-        loginButton.setTitleColor(InterfaceColours.udacityBackground, for: .normal)
-        skipButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
-    }
-    
+        
     //MARK: Network Requests
     func login() {
         UdacityApiClient.removeCurrentLoginData()
@@ -57,6 +48,15 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: UI Setup
+    func setUI() {
+        view.backgroundColor = InterfaceColours.udacityBackground
+        loginButton.layer.cornerRadius = 10
+        loginButton.backgroundColor = InterfaceColours.udacityBlue
+        loginButton.setTitleColor(InterfaceColours.udacityBackground, for: .normal)
+        skipButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
+    }
+        
     //MARK: Button Actions
     @IBAction func loginButtonDidTapped() {
         resignAllTextFields()
@@ -65,16 +65,16 @@ class LoginViewController: UIViewController {
     
     func performLoginSegue() {
         passwordTextField.text = nil
-        let destination = (storyboard?.instantiateViewController(identifier: "mainTabView"))!
-        navigationController?.pushViewController(destination, animated: true)
+        //Is the a better way to do this?
+        //I was originally using a navigation controller with pop to root but that caused issues as all the tabs of the tab view controller were sharing a navigation controller
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func skipButtonDidTapped() {
         resignAllTextFields()
         UdacityApiClient.removeCurrentLoginData()
         clearTextFields()
-        let destination = (storyboard?.instantiateViewController(identifier: "mainTabView"))!
-        navigationController?.pushViewController(destination, animated: true)
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
         //TODO: Add Warning about no login
     }
     

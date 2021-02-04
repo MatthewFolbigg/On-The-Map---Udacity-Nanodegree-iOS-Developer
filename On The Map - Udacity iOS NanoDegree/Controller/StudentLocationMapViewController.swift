@@ -15,6 +15,7 @@ class StudentLocationMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .standard
+        askToLogin()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +24,12 @@ class StudentLocationMapViewController: UIViewController {
         addToMap(annotations: annotations)
     }
     
+    func askToLogin() {
+        let destination = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        present(destination, animated: true, completion: nil)
+    }
+    
+    //MARK: Map View
     func addToMap(annotations: [MKPointAnnotation]) {
         for annotaion in annotations {
             mapView.addAnnotation(annotaion)

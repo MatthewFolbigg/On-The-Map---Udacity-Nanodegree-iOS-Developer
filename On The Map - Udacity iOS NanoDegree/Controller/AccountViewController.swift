@@ -26,7 +26,7 @@ class AccountViewController: UIViewController {
         super.viewWillAppear(animated)
         emailLabel.text = UdacityApiClient.currentUserData?.email.address
     }
-    
+        
     //MARK: UI Setup
     func setUI() {
         view.backgroundColor = InterfaceColours.udacityBackground
@@ -46,10 +46,8 @@ class AccountViewController: UIViewController {
         print("Logging Out ID: \(UdacityApiClient.currentLogin?.account.key ?? "ERROR: NO ID LOGGED IN")")
         UdacityApiClient.removeCurrentLoginData()
         
-        let navigationController = self.presentingViewController as? UINavigationController
-        self.dismiss(animated: false) {
-            navigationController?.popToRootViewController(animated: true)
-        }
+        performSegue(withIdentifier: "loginSegue", sender: nil)
+        
         print(UdacityApiClient.currentLogin ?? "User Logged Out")
     }
     

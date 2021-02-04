@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jOo-zG-Xfb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rw8-CH-JZJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="XO8-Yi-Hwn">
             <objects>
-                <viewController id="9xe-4A-hPH" customClass="LoginViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="9xe-4A-hPH" customClass="LoginViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1iF-HF-Ysj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,17 +101,16 @@
                         <outlet property="passwordTextField" destination="Ufn-sb-Ic5" id="rPE-F3-Oc3"/>
                         <outlet property="skipButton" destination="SPb-RZ-Odp" id="HQP-cS-6p9"/>
                         <outlet property="usernameTextField" destination="bpc-YR-y8s" id="JSt-bc-sBy"/>
-                        <segue destination="rw8-CH-JZJ" kind="showDetail" identifier="loginSegue" id="26k-5i-7gw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apE-Lx-rJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4262.3188405797109" y="6.6964285714285712"/>
+            <point key="canvasLocation" x="-3633" y="751"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="KMc-PD-zpD">
             <objects>
-                <viewController storyboardIdentifier="AccountViewController" id="cG5-eO-tjX" customClass="AccountViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" modalPresentationStyle="fullScreen" id="cG5-eO-tjX" customClass="AccountViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IgG-kR-VUl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,11 +175,12 @@
                         <outlet property="cancelButton" destination="EVf-hi-izK" id="10e-bX-ZFb"/>
                         <outlet property="emailLabel" destination="f29-sT-5q3" id="QTb-Po-Ozd"/>
                         <outlet property="logoutButton" destination="VcG-U1-MC5" id="Rpy-do-zCR"/>
+                        <segue destination="9xe-4A-hPH" kind="show" identifier="loginSegue" id="FGH-1V-0gE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8w-iR-aHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3349" y="779"/>
+            <point key="canvasLocation" x="-4522" y="751"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="Ip1-tt-ZGi">
@@ -264,8 +264,7 @@
                             <constraint firstItem="xj7-YJ-ain" firstAttribute="bottom" secondItem="pOs-SZ-Kss" secondAttribute="bottom" id="x0G-9L-M0G"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="wT8-ej-eCh"/>
-                    <navigationItem key="navigationItem" title="On The Map" largeTitleDisplayMode="always" id="vvn-36-ErL"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="vvn-36-ErL"/>
                     <connections>
                         <outlet property="tableView" destination="pOs-SZ-Kss" id="aNG-4K-Plo"/>
                         <segue destination="wWN-ee-aiy" kind="show" identifier="cellDetail" id="cWW-3h-2fD"/>
@@ -273,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOM-GE-D8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226.0869565217395" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="-1316" y="-315"/>
         </scene>
         <!--More Detail View Controller-->
         <scene sceneID="EQV-Mu-tzL">
@@ -341,29 +340,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="508-2b-Mg2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1302.8985507246377" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="-297" y="-315"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="3TF-IO-tAT">
             <objects>
-                <tabBarController storyboardIdentifier="mainTabView" automaticallyAdjustsScrollViewInsets="NO" id="rw8-CH-JZJ" customClass="MainTabBarController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabView" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rw8-CH-JZJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="nTb-LR-bcc"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gRD-Pl-NLR">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xB6-kz-ZPP" kind="relationship" relationship="viewControllers" id="vUm-Oy-aJ9"/>
-                        <segue destination="7PQ-BU-N7R" kind="relationship" relationship="viewControllers" id="flx-Wk-zr9"/>
-                        <segue destination="cG5-eO-tjX" kind="show" identifier="accountOrLoginSegue" id="z5c-ea-Ol9"/>
+                        <segue destination="hkw-df-2MP" kind="relationship" relationship="viewControllers" id="vUm-Oy-aJ9"/>
+                        <segue destination="sqA-C0-Dh3" kind="relationship" relationship="viewControllers" id="flx-Wk-zr9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypg-bm-RVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3349" y="7"/>
+            <point key="canvasLocation" x="-3632" y="7"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="rhr-uw-70l">
@@ -386,34 +384,55 @@
                             <constraint firstItem="yGV-0K-lJg" firstAttribute="top" secondItem="hUo-dw-ycV" secondAttribute="top" id="pTY-bP-4Cg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="LFQ-LE-k9r"/>
                     <navigationItem key="navigationItem" title="On The Map" id="GBG-n5-Htp"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="yGV-0K-lJg" id="1tl-Q2-QHZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmS-y1-hRt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226" y="378"/>
+            <point key="canvasLocation" x="-1315.9420289855072" y="377.67857142857139"/>
         </scene>
-        <!--Main Navigation View Controller-->
-        <scene sceneID="6i7-6e-ybJ">
+        <!--Map-->
+        <scene sceneID="Nie-hG-ZKK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jOo-zG-Xfb" customClass="MainNavigationViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hkw-df-2MP" customClass="tabNavigationController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="LFQ-LE-k9r"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="LVA-ff-b6a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0b-1l-zvE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yNe-g8-r1w">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="xB6-kz-ZPP" kind="relationship" relationship="rootViewController" id="r2D-YT-qwO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULy-De-B30" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2226.0869565217395" y="377.67857142857139"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="qso-kd-flg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqA-C0-Dh3" customClass="tabNavigationController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="wT8-ej-eCh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="cnt-pd-S2O">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9xe-4A-hPH" kind="relationship" relationship="rootViewController" id="bXw-8e-LUU"/>
+                        <segue destination="7PQ-BU-N7R" kind="relationship" relationship="rootViewController" id="d6n-YL-m8m"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1W5-V2-CIS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5t-D6-X5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5068" y="7"/>
+            <point key="canvasLocation" x="-2226.0869565217395" y="-315.40178571428572"/>
         </scene>
     </scenes>
     <resources>
