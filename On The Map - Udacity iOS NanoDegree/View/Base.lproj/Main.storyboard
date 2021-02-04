@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="vxV-9F-NwJ">
-                                <rect key="frame" x="0.0" y="282.5" width="414" height="131"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vxV-9F-NwJ">
+                                <rect key="frame" x="0.0" y="306.5" width="414" height="83"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username or Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpc-YR-y8s" userLabel="Username Text Field">
                                         <rect key="frame" x="50" y="0.0" width="314" height="34"/>
@@ -29,7 +29,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ufn-sb-Ic5" userLabel="Password Text Field">
-                                        <rect key="frame" x="50" y="97" width="314" height="34"/>
+                                        <rect key="frame" x="50" y="49" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
@@ -43,14 +43,14 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHU-5l-q2a" userLabel="Login Button">
-                                <rect key="frame" x="107" y="493.5" width="200" height="50"/>
+                                <rect key="frame" x="117" y="439.5" width="180" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="cgj-E4-HCU"/>
+                                    <constraint firstAttribute="width" constant="180" id="KRf-tV-ICj"/>
                                     <constraint firstAttribute="height" constant="50" id="x6U-WF-Er7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -58,24 +58,41 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPb-RZ-Odp">
-                                <rect key="frame" x="192" y="792" width="30" height="30"/>
-                                <state key="normal" title="Skip"/>
+                                <rect key="frame" x="163" y="792" width="88" height="30"/>
+                                <state key="normal" title="Don't Sign In"/>
                                 <connections>
                                     <action selector="skipButtonDidTapped" destination="9xe-4A-hPH" eventType="touchUpInside" id="yVs-WG-A4D"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only users logged in to a Udacity account can add locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVp-rD-oHL">
+                                <rect key="frame" x="28" y="822" width="358.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UdacityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Mmp-y9-d1Y">
+                                <rect key="frame" x="87" y="76.5" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="RNn-Jt-Gik"/>
+                                    <constraint firstAttribute="height" constant="200" id="oA6-vl-mzg"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ODx-y2-Iwn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Mmp-y9-d1Y" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="2Yy-og-kGP"/>
                             <constraint firstItem="SPb-RZ-Odp" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="7wC-zl-AFn"/>
                             <constraint firstItem="nHU-5l-q2a" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="J7k-Xj-0Au"/>
                             <constraint firstItem="vxV-9F-NwJ" firstAttribute="centerY" secondItem="1iF-HF-Ysj" secondAttribute="centerY" constant="-100" id="JCZ-yd-bRh"/>
                             <constraint firstItem="vxV-9F-NwJ" firstAttribute="leading" secondItem="ODx-y2-Iwn" secondAttribute="leading" id="Ouo-9g-dKr"/>
                             <constraint firstItem="ODx-y2-Iwn" firstAttribute="bottom" secondItem="SPb-RZ-Odp" secondAttribute="bottom" constant="40" id="SNk-Sh-eeg"/>
                             <constraint firstItem="vxV-9F-NwJ" firstAttribute="centerX" secondItem="1iF-HF-Ysj" secondAttribute="centerX" id="WdN-U5-uzN"/>
-                            <constraint firstItem="nHU-5l-q2a" firstAttribute="top" secondItem="vxV-9F-NwJ" secondAttribute="bottom" constant="80" id="eSJ-up-Bzb"/>
+                            <constraint firstItem="bpc-YR-y8s" firstAttribute="top" secondItem="Mmp-y9-d1Y" secondAttribute="bottom" constant="30" id="ZV6-2e-XPR"/>
+                            <constraint firstItem="nHU-5l-q2a" firstAttribute="top" secondItem="vxV-9F-NwJ" secondAttribute="bottom" constant="50" id="eSJ-up-Bzb"/>
                             <constraint firstItem="ODx-y2-Iwn" firstAttribute="trailing" secondItem="vxV-9F-NwJ" secondAttribute="trailing" id="mwI-ey-GEd"/>
+                            <constraint firstItem="FVp-rD-oHL" firstAttribute="centerX" secondItem="SPb-RZ-Odp" secondAttribute="centerX" id="uUJ-R3-poQ"/>
+                            <constraint firstItem="FVp-rD-oHL" firstAttribute="top" secondItem="SPb-RZ-Odp" secondAttribute="bottom" id="vWA-O7-8JH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yMr-Wo-27e"/>
@@ -89,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apE-Lx-rJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4261" y="7"/>
+            <point key="canvasLocation" x="-4262.3188405797109" y="6.6964285714285712"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="KMc-PD-zpD">
@@ -100,21 +117,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-U1-MC5">
-                                <rect key="frame" x="183" y="433" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
+                                <rect key="frame" x="117" y="423" width="180" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="VYU-Gu-ulU"/>
+                                    <constraint firstAttribute="height" constant="50" id="gdN-DB-nze"/>
+                                </constraints>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutButtonDidTapped" destination="cG5-eO-tjX" eventType="touchUpInside" id="dYh-WM-mvo"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UdacityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pQY-Db-Loh">
+                                <rect key="frame" x="87" y="193" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Gsr-V6-5jA"/>
+                                    <constraint firstAttribute="width" constant="240" id="cq3-X6-kPW"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVf-hi-izK">
+                                <rect key="frame" x="117" y="483" width="180" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sSL-hB-GbU"/>
+                                    <constraint firstAttribute="width" constant="180" id="uSw-wb-0x0"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonDidTapped" destination="cG5-eO-tjX" eventType="touchUpInside" id="w5Q-HU-ANc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tki-3O-Ny7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EVf-hi-izK" firstAttribute="top" secondItem="VcG-U1-MC5" secondAttribute="bottom" constant="10" id="Zi3-TA-LEL"/>
+                            <constraint firstItem="EVf-hi-izK" firstAttribute="leading" secondItem="VcG-U1-MC5" secondAttribute="leading" id="bCy-Mf-DmI"/>
+                            <constraint firstItem="VcG-U1-MC5" firstAttribute="top" secondItem="pQY-Db-Loh" secondAttribute="bottom" constant="30" id="erx-YW-ega"/>
                             <constraint firstItem="VcG-U1-MC5" firstAttribute="centerX" secondItem="IgG-kR-VUl" secondAttribute="centerX" id="sYg-yr-65d"/>
+                            <constraint firstItem="pQY-Db-Loh" firstAttribute="centerX" secondItem="IgG-kR-VUl" secondAttribute="centerX" id="tbP-qt-ZOh"/>
                             <constraint firstItem="VcG-U1-MC5" firstAttribute="centerY" secondItem="IgG-kR-VUl" secondAttribute="centerY" id="ww9-Hk-U44"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oPH-b4-DT3"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="EVf-hi-izK" id="10e-bX-ZFb"/>
+                        <outlet property="logoutButton" destination="VcG-U1-MC5" id="Rpy-do-zCR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8w-iR-aHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -341,6 +394,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="UdacityLogo" width="2400" height="1260"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>

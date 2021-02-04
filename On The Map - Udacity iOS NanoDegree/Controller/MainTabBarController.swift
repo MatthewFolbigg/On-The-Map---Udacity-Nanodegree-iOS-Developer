@@ -62,7 +62,8 @@ class MainTabBarController: UITabBarController {
             self.navigationController?.popViewController(animated: true)
         } else {
             let destination = storyboard?.instantiateViewController(identifier: "AccountViewController") as! AccountViewController
-            self.navigationController?.pushViewController(destination, animated: true)
+            self.present(destination, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(destination, animated: true)
         }
     }
 

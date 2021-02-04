@@ -3,18 +3,53 @@
 //  On The Map - Udacity iOS NanoDegree
 //
 //  Created by Matthew Folbigg on 03/02/2021.
+//  Udacity Logo and Text are not my own and are from Udacity. They are beign used for Educational purposes only
 //
 
 import Foundation
 import UIKit
 
 class AccountViewController: UIViewController {
+   
+    //MARK: IB Outlets
+    @IBOutlet var logoutButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
     
+    //MARK: Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUI()
+    }
+    
+    //MARK: UI Setup
+    func setUI() {
+        view.backgroundColor = InterfaceColours.udacityBackground
+        logoutButton.layer.cornerRadius = 10
+        logoutButton.backgroundColor = InterfaceColours.udacityBlue
+        logoutButton.setTitleColor(InterfaceColours.udacityBackground, for: .normal)
+        
+        cancelButton.layer.cornerRadius = 10
+        cancelButton.backgroundColor = InterfaceColours.udacityBackground
+        cancelButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
+        cancelButton.layer.borderWidth = 2
+        cancelButton.layer.borderColor = InterfaceColours.udacityBlueCG
+    }
+    
+    //MARK: Logout Button Press
     @IBAction func logoutButtonDidTapped() {
         print("Logging Out ID: \(UdacityApiClient.currentLogin?.account.key ?? "ERROR: NO ID LOGGED IN")")
         UdacityApiClient.currentLogin = nil
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        let navigationController = self.presentingViewController as? UINavigationController
+        self.dismiss(animated: false) {
+            navigationController?.popToRootViewController(animated: true)
+        }
         print(UdacityApiClient.currentLogin ?? "User Logged Out")
+    }
+    
+    //MARK: Cancel Button Press
+    @IBAction func cancelButtonDidTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

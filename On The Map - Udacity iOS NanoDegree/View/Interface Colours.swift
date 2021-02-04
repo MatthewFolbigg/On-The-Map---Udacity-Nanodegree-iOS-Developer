@@ -19,5 +19,8 @@ struct InterfaceColours {
 
     static let red: UIColor = UIColor(displayP3Red: 236/255, green: 103/255, blue: 81/255, alpha: 1)
     
-    static let udacityBlue: UIColor = UIColor(displayP3Red: 80/255, green: 176/255, blue: 223/255, alpha: 1)
+    static let udacityBlue: UIColor = UIColor(displayP3Red: 52/255, green: 120/255, blue: 152/255, alpha: 1)
+    static let udacityBlueCG: CGColor = CGColor(red: 52/255, green: 120/255, blue: 152/255, alpha: 1)
+    static let udacityBackground: UIColor = UIColor(displayP3Red: 247/255, green: 252/255, blue: 254/255, alpha: 1)
+   
 }
