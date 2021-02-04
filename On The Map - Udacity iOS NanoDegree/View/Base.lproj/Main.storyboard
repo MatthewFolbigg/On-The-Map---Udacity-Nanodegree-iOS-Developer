@@ -202,7 +202,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="wT8-ej-eCh"/>
-                    <navigationItem key="navigationItem" title="On The Map" id="vvn-36-ErL"/>
+                    <navigationItem key="navigationItem" title="On The Map" largeTitleDisplayMode="always" id="vvn-36-ErL"/>
                     <connections>
                         <outlet property="tableView" destination="pOs-SZ-Kss" id="aNG-4K-Plo"/>
                         <segue destination="wWN-ee-aiy" kind="show" identifier="cellDetail" id="cWW-3h-2fD"/>
@@ -305,7 +305,7 @@
         <!--On The Map-->
         <scene sceneID="rhr-uw-70l">
             <objects>
-                <viewController id="xB6-kz-ZPP" sceneMemberID="viewController">
+                <viewController id="xB6-kz-ZPP" customClass="StudentLocationMapViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M2v-e1-cS9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="LFQ-LE-k9r"/>
-                    <navigationItem key="navigationItem" title="On The Map" largeTitleDisplayMode="always" id="GBG-n5-Htp"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="GBG-n5-Htp"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmS-y1-hRt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

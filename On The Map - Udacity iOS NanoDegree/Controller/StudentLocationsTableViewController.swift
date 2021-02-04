@@ -36,9 +36,8 @@ class StudentLocationsTableViewController: UIViewController {
             return
         }
         self.studentLocations = locations
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
-    
 }
 
 //MARK: Table View
@@ -84,9 +83,8 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
     
     @objc func handleRefreshControl() {
         updateStudentLocations()
-        DispatchQueue.main.async {
-            self.tableView.refreshControl?.endRefreshing()
-        }
+        tableView.refreshControl?.endRefreshing()
     }
+
 }
 

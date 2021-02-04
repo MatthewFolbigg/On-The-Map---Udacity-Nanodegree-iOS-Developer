@@ -13,6 +13,7 @@
 		1F934C8E25C9C96F0062E572 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */; };
 		1FD78E9125CB1CB600238291 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9025CB1CB600238291 /* MainTabBarController.swift */; };
 		1FD78E9425CB3E3D00238291 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9325CB3E3D00238291 /* AccountViewController.swift */; };
+		1FD78E9725CB4D9100238291 /* StudentLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */; };
 		1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB425C8A14800745C56 /* AppDelegate.swift */; };
 		1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */; };
 		1FD9FBBC25C8A14800745C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9FBBA25C8A14800745C56 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		1FD78E9025CB1CB600238291 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1FD78E9325CB3E3D00238291 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationMapViewController.swift; sourceTree = "<group>"; };
 		1FD9FBB125C8A14800745C56 /* On The Map - Udacity iOS NanoDegree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map - Udacity iOS NanoDegree.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD9FBB425C8A14800745C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,12 +79,13 @@
 		1F10C9BE25C995E10062ED55 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
-				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
-				1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */,
 				1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */,
+				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
 				1FD78E9025CB1CB600238291 /* MainTabBarController.swift */,
 				1FD78E9325CB3E3D00238291 /* AccountViewController.swift */,
+				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
+				1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */,
+				1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */,
 				1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */,
 				1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */,
+				1FD78E9725CB4D9100238291 /* StudentLocationMapViewController.swift in Sources */,
 				1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */,
 				1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */,
 				1FDDDD4325CACADF00B65AB0 /* UdacityApiClient.swift in Sources */,

@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     //MARK: Varibales
-    //var userSession: udacityLoginResponse?
     
     //MARK: Life Cycle
     override func viewDidLoad() {
