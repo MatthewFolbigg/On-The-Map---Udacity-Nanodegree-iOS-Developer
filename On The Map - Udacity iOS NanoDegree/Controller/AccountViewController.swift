@@ -14,11 +14,17 @@ class AccountViewController: UIViewController {
     //MARK: IB Outlets
     @IBOutlet var logoutButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var emailLabel: UILabel!
     
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailLabel.text = UdacityApiClient.currentUserData?.email.address
     }
     
     //MARK: UI Setup
@@ -38,7 +44,7 @@ class AccountViewController: UIViewController {
     //MARK: Logout Button Press
     @IBAction func logoutButtonDidTapped() {
         print("Logging Out ID: \(UdacityApiClient.currentLogin?.account.key ?? "ERROR: NO ID LOGGED IN")")
-        UdacityApiClient.currentLogin = nil
+        UdacityApiClient.removeCurrentLoginData()
         
         let navigationController = self.presentingViewController as? UINavigationController
         self.dismiss(animated: false) {

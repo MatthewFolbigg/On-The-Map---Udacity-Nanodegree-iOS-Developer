@@ -10,14 +10,17 @@ import Foundation
 class UdacityApiClient {
     
     static var currentLogin: udacityLoginResponse? = nil
+    static var currentUserData: UdacityUserData? = nil
     
     //MARK: Endpoints
     enum EndPoints {
         
         static let baseUrl: String = "https://onthemap-api.udacity.com/v1"
         static let userSessionUrl: String = "/session"
+        static let userDataUrl: String = "/users" // /<user_id>
         
         case login
+        case userData(String)
         
         var url: URL {
             URL(string: self.urlString)!
@@ -27,6 +30,8 @@ class UdacityApiClient {
             switch self {
             case .login:
                 return "\(EndPoints.baseUrl)\(EndPoints.userSessionUrl)"
+            case .userData(let userID):
+                return "\(EndPoints.baseUrl)\(EndPoints.userDataUrl)/\(userID)"
             }
         }
     }
@@ -60,6 +65,7 @@ class UdacityApiClient {
                 return
             }
             
+            //Removes first 5 characters from data to only include the required JSON
             let range = 5..<data.count
             let newData = data.subdata(in: range)
             
@@ -68,6 +74,7 @@ class UdacityApiClient {
                 let loginResponse = try decoder.decode(udacityLoginResponse.self, from: newData)
                 DispatchQueue.main.async {
                     self.currentLogin = loginResponse
+                    print("Sucess")
                     completion(true, nil)
                 }
             } catch {
@@ -80,6 +87,43 @@ class UdacityApiClient {
             }
         }
         task.resume()
+    }
+    
+    //MARK: User Data GET Request
+    static func getUserData(userID: String, completeion: @escaping (Error?) -> Void) {
+        print("URL: \(EndPoints.userData(userID).url)")
+        let task = URLSession.shared.dataTask(with: EndPoints.userData(userID).url) { (data, response, error) in
+            
+            guard let data = data else {
+                //TODO: Handle Error Here
+                print("Error: No Data")
+                return
+            }
+            
+            //Removes first 5 characters from data to only include the required JSON
+            let range = 5..<data.count
+            let newData = data.subdata(in: range)
+            
+            let decoder = JSONDecoder()
+            do {
+                let userData = try decoder.decode(UdacityUserData.self, from: newData)
+                self.currentUserData = userData
+                print("\(self.currentUserData?.firstName) \(self.currentUserData?.lastName)")
+                print(self.currentUserData?.email.address)
+                DispatchQueue.main.async {
+                    completeion(error)
+                }
+            } catch {
+                //TODO: Handle Error Here
+                print(error)
+            }
+        }
+        task.resume()
+    }
+    
+    static func removeCurrentLoginData() {
+        self.currentLogin = nil
+        self.currentUserData = nil
     }
     
 }

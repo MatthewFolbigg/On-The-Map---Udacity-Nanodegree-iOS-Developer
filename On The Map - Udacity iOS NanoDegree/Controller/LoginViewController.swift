@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     
     //MARK: Network Requests
     func login() {
-        UdacityApiClient.currentLogin = nil
+        UdacityApiClient.removeCurrentLoginData()
         let user = createUserFromTextFields()
         UdacityApiClient.login(user: user, completion: handelLoginResponse(loginSuccess: error:))
     }
@@ -46,7 +46,14 @@ class LoginViewController: UIViewController {
         if UdacityApiClient.currentLogin == nil {
             return //TODO: Handle login failure
         } else {
-            performLoginSegue()
+            guard let userID = UdacityApiClient.currentLogin?.account.key else {
+                //TODO: Handel this error
+                return
+            }
+            print(userID)
+            UdacityApiClient.getUserData(userID: userID) { (error) in
+                self.performLoginSegue()
+            }
         }
     }
     
@@ -64,7 +71,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func skipButtonDidTapped() {
         resignAllTextFields()
-        UdacityApiClient.currentLogin = nil
+        UdacityApiClient.removeCurrentLoginData()
         clearTextFields()
         let destination = (storyboard?.instantiateViewController(identifier: "mainTabView"))!
         navigationController?.pushViewController(destination, animated: true)
