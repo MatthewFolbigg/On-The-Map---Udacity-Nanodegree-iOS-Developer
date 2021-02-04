@@ -37,6 +37,7 @@ class StudentLocationsTableViewController: UIViewController {
         }
         self.studentLocations = locations
         tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
 }
 
@@ -70,9 +71,9 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
     func setCellUI(cell: StudentLocationTableCell, studentLocation: StudentLocation) {
         cell.nameLabel.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         cell.locationLabel.text = studentLocation.locationString
-        cell.pinImageView.tintColor = interfaceColours.red
-        cell.arrowImageView.tintColor = interfaceColours.blue
-        cell.locationLabel.textColor = interfaceColours.blue
+        cell.pinImageView.tintColor = InterfaceColours.red
+        cell.arrowImageView.tintColor = InterfaceColours.blue
+        cell.locationLabel.textColor = InterfaceColours.blue
     }
     
     //MARK: Pull to Refresh
@@ -83,7 +84,6 @@ extension StudentLocationsTableViewController: UITableViewDelegate, UITableViewD
     
     @objc func handleRefreshControl() {
         updateStudentLocations()
-        tableView.refreshControl?.endRefreshing()
     }
 
 }

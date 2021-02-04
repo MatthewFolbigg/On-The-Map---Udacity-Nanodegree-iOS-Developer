@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var skipButton: UIButton!
     
     //MARK: Varibales
     
@@ -21,6 +22,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTextFields()
+        setUI()
+    }
+    
+    func setUI() {
+        view.backgroundColor = InterfaceColours.udacityBlue
+        loginButton.layer.cornerRadius = 10
+        loginButton.backgroundColor = .white
+        loginButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
+        skipButton.setTitleColor(.white, for: .normal)
     }
     
     //MARK: Network Requests

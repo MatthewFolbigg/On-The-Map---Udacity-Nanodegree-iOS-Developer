@@ -82,6 +82,7 @@
                     <connections>
                         <outlet property="loginButton" destination="nHU-5l-q2a" id="1Ft-fS-knI"/>
                         <outlet property="passwordTextField" destination="Ufn-sb-Ic5" id="rPE-F3-Oc3"/>
+                        <outlet property="skipButton" destination="SPb-RZ-Odp" id="HQP-cS-6p9"/>
                         <outlet property="usernameTextField" destination="bpc-YR-y8s" id="JSt-bc-sBy"/>
                         <segue destination="rw8-CH-JZJ" kind="showDetail" identifier="loginSegue" id="26k-5i-7gw"/>
                     </connections>

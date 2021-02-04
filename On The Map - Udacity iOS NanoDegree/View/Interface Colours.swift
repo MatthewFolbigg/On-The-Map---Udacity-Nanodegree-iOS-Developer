@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct interfaceColours {
+struct InterfaceColours {
     
     static let paleGreen: UIColor = UIColor(displayP3Red: 238/255, green: 240/255, blue: 218/255, alpha: 1)
     static let mediumGreen: UIColor = UIColor(displayP3Red: 219/255, green: 226/255, blue: 207/255, alpha: 1)
@@ -18,4 +18,6 @@ struct interfaceColours {
     static let blue: UIColor = UIColor(displayP3Red: 52/255, green: 120/255, blue: 246/255, alpha: 1)
 
     static let red: UIColor = UIColor(displayP3Red: 236/255, green: 103/255, blue: 81/255, alpha: 1)
+    
+    static let udacityBlue: UIColor = UIColor(displayP3Red: 80/255, green: 176/255, blue: 223/255, alpha: 1)
 }
