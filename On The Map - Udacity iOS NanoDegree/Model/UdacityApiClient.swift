@@ -108,8 +108,6 @@ class UdacityApiClient {
             do {
                 let userData = try decoder.decode(UdacityUserData.self, from: newData)
                 self.currentUserData = userData
-                print("\(self.currentUserData?.firstName) \(self.currentUserData?.lastName)")
-                print(self.currentUserData?.email.address)
                 DispatchQueue.main.async {
                     completeion(error)
                 }

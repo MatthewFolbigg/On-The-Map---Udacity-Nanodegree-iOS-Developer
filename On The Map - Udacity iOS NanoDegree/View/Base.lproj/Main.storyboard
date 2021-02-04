@@ -372,12 +372,26 @@
                     <view key="view" contentMode="scaleToFill" id="M2v-e1-cS9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yGV-0K-lJg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hUo-dw-ycV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yGV-0K-lJg" firstAttribute="leading" secondItem="hUo-dw-ycV" secondAttribute="leading" id="aps-8b-sSK"/>
+                            <constraint firstItem="hUo-dw-ycV" firstAttribute="trailing" secondItem="yGV-0K-lJg" secondAttribute="trailing" id="htf-X8-pnb"/>
+                            <constraint firstItem="hUo-dw-ycV" firstAttribute="bottom" secondItem="yGV-0K-lJg" secondAttribute="bottom" id="oLH-4T-0yh"/>
+                            <constraint firstItem="yGV-0K-lJg" firstAttribute="top" secondItem="hUo-dw-ycV" secondAttribute="top" id="pTY-bP-4Cg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="LFQ-LE-k9r"/>
                     <navigationItem key="navigationItem" title="On The Map" id="GBG-n5-Htp"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="yGV-0K-lJg" id="1tl-Q2-QHZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmS-y1-hRt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

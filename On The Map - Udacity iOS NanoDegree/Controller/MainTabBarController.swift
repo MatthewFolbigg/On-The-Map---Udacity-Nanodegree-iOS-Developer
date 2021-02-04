@@ -76,6 +76,14 @@ class MainTabBarController: UITabBarController {
 
     @objc func addPinButtonDidTapped() {
         print("Add Pin Tapped")
+        //TODO: Move to new VC for adding a Map Pin
+        guard let user = UdacityApiClient.currentUserData else { return }
+        guard let login = UdacityApiClient.currentLogin?.account else { return }
+        let testLocation = StudentLocation(firstName: user.firstName, lastName: user.lastName, longitude: 74.2, latitude: 7.42, locationString: "United Kingdom", url: "www.apple.com", identifierKey: login.key, objectID: "Test", createdAt: "Test", updatedAt: "Test")
+        ParseApiClient.postStudentLocation(studentLocation: testLocation) { (error) in
+        print("ADD COMPLETE")
+        
+        }
     }
 
 

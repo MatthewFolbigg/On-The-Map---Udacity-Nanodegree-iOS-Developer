@@ -9,6 +9,7 @@ import Foundation
 
 class ParseApiClient {
     
+    static var currentLocations: [StudentLocation]?
     
     //MARK: Endpoints
     enum Endpoints {
@@ -47,6 +48,7 @@ class ParseApiClient {
             let responseObject = try decoder.decode(StudentLocationsResults.self, from: data)
                 let studentLocations = responseObject.studentLocations
                 DispatchQueue.main.async {
+                    self.currentLocations = studentLocations
                     completion(studentLocations, nil)
                 }
             } catch {
@@ -56,6 +58,39 @@ class ParseApiClient {
             }
         }
         task.resume()
+    }
+    
+    //MARK: POST Resquests
+    class func postStudentLocation(studentLocation: StudentLocation, completion: @escaping (Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.getStudentLocations.url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let encoder = JSONEncoder()
+            let studentLocationJSON = try encoder.encode(studentLocation)
+            request.httpBody = studentLocationJSON
+        } catch {
+            print(error)
+            print("Unable to encode JSON")
+            //TODO: Handel this error
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if data == nil {
+                //TODO: Handel this error
+                print("No data returned")
+                return
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }
+        task.resume()
+        
+        
     }
     
 
