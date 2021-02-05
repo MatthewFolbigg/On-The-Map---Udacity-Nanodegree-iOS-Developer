@@ -18,9 +18,11 @@ class UdacityApiClient {
         static let baseUrl: String = "https://onthemap-api.udacity.com/v1"
         static let userSessionUrl: String = "/session"
         static let userDataUrl: String = "/users" // /<user_id>
+        static let signUpURL: String = "https://auth.udacity.com/sign-up"
         
         case login
         case userData(String)
+        case signUp
         
         var url: URL {
             URL(string: self.urlString)!
@@ -32,6 +34,8 @@ class UdacityApiClient {
                 return "\(EndPoints.baseUrl)\(EndPoints.userSessionUrl)"
             case .userData(let userID):
                 return "\(EndPoints.baseUrl)\(EndPoints.userDataUrl)/\(userID)"
+            case .signUp:
+                return "\(EndPoints.signUpURL)"
             }
         }
     }

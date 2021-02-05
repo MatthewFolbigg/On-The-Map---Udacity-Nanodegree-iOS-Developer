@@ -11,23 +11,21 @@ import UIKit
 class StudentLocationsTableViewController: UITableViewController {
     
     //MARK: Outlets & UI Items
-    //@IBOutlet var tableView: UITableView!
     var accountButton: UIBarButtonItem!
     var addPinButton: UIBarButtonItem!
     
     //MARK: Variables
-    var studentLocations: [StudentLocation] = []
     
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateStudentLocations()
         setupTableViewPullToRefresh()
         setUpBarButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateStudentLocations()
         setButtonsForLoginStatus()
     }
     
@@ -43,9 +41,11 @@ class StudentLocationsTableViewController: UITableViewController {
             print("error")
             return
         }
-        self.studentLocations = locations
-        tableView.reloadData()
-        tableView.refreshControl?.endRefreshing()
+        ParseApiClient.currentLocations = locations
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
     //MARK: Bar Buttons
@@ -90,20 +90,14 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     @objc func addPinButtonDidTapped() {
-        print("Add Pin Tapped")
-        //TODO: Move to new VC for adding a Map Pin
-        guard let user = UdacityApiClient.currentUserData else { return }
-        guard let login = UdacityApiClient.currentLogin?.account else { return }
-        let testLocation = StudentLocation(firstName: user.firstName, lastName: user.lastName, longitude: 74.2, latitude: 7.42, locationString: "United Kingdom", url: "www.apple.com", identifierKey: login.key, objectID: "Test", createdAt: "Test", updatedAt: "Test")
-        ParseApiClient.postStudentLocation(studentLocation: testLocation) { (error) in
-            print("ADD COMPLETE")
-        }
+        let destination = (storyboard?.instantiateViewController(identifier: "AddPinNavController"))!
+        present(destination, animated: true, completion: nil)
     }
 
     
     //MARK: Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        studentLocations.count
+        ParseApiClient.currentLocations?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -112,7 +106,7 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let studentLocation = studentLocations[indexPath.row]
+        let studentLocation = ParseApiClient.currentLocations![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentLocationTableCell") as! StudentLocationTableCell
         setCellUI(cell: cell, studentLocation: studentLocation)
         return cell
@@ -120,7 +114,7 @@ class StudentLocationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destinationController = storyboard?.instantiateViewController(identifier: "moreDetailViewController") as! MoreDetailViewController
-        destinationController.studentLocation = studentLocations[indexPath.row]
+        destinationController.studentLocation = ParseApiClient.currentLocations![indexPath.row]
         destinationController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(destinationController, animated: true)
     }
@@ -143,6 +137,5 @@ class StudentLocationsTableViewController: UITableViewController {
     @objc func handleRefreshControl() {
         updateStudentLocations()
     }
-
 }
 

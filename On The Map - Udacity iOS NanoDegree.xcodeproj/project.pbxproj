@@ -15,6 +15,7 @@
 		1FD78E9425CB3E3D00238291 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9325CB3E3D00238291 /* AccountViewController.swift */; };
 		1FD78E9725CB4D9100238291 /* StudentLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */; };
 		1FD78E9F25CC343F00238291 /* Udacity User Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9E25CC343F00238291 /* Udacity User Data.swift */; };
+		1FD78EA625CD60D400238291 /* AddPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78EA525CD60D400238291 /* AddPinViewController.swift */; };
 		1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB425C8A14800745C56 /* AppDelegate.swift */; };
 		1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */; };
 		1FD9FBBC25C8A14800745C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9FBBA25C8A14800745C56 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		1FD78E9325CB3E3D00238291 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationMapViewController.swift; sourceTree = "<group>"; };
 		1FD78E9E25CC343F00238291 /* Udacity User Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Udacity User Data.swift"; sourceTree = "<group>"; };
+		1FD78EA525CD60D400238291 /* AddPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinViewController.swift; sourceTree = "<group>"; };
 		1FD9FBB125C8A14800745C56 /* On The Map - Udacity iOS NanoDegree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map - Udacity iOS NanoDegree.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD9FBB425C8A14800745C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD9FBB625C8A14800745C56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,9 +86,10 @@
 				1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */,
 				1FD9FBCA25C8A53F00745C56 /* LoginViewController.swift */,
 				1FD78E9025CB1CB600238291 /* MainTabNavigationController.swift */,
-				1FD78E9325CB3E3D00238291 /* AccountViewController.swift */,
 				1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */,
 				1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */,
+				1FD78E9325CB3E3D00238291 /* AccountViewController.swift */,
+				1FD78EA525CD60D400238291 /* AddPinViewController.swift */,
 				1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */,
 			);
 			path = Controller;
@@ -230,6 +233,7 @@
 				1FDDDD4025CAC2AD00B65AB0 /* MoreDetailViewController.swift in Sources */,
 				1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */,
 				1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */,
+				1FD78EA625CD60D400238291 /* AddPinViewController.swift in Sources */,
 				1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */,
 				1FD78E9725CB4D9100238291 /* StudentLocationMapViewController.swift in Sources */,
 				1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */,
@@ -316,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -371,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

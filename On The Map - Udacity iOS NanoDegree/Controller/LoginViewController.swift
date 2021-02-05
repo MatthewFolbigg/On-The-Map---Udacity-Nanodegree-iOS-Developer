@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var skipButton: UIButton!
+    @IBOutlet var signUpButton: UIButton!
     
     //MARK: Varibales
     
@@ -55,6 +56,7 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = InterfaceColours.udacityBlue
         loginButton.setTitleColor(InterfaceColours.udacityBackground, for: .normal)
         skipButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
+        signUpButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
     }
         
     //MARK: Button Actions
@@ -76,6 +78,13 @@ class LoginViewController: UIViewController {
         clearTextFields()
         self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
         //TODO: Add Warning about no login
+    }
+    
+    @IBAction func signUpButtonDidTapped() {
+        let url = UdacityApiClient.EndPoints.signUp.url
+        print(url)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        print("Sign Up")
     }
     
 }

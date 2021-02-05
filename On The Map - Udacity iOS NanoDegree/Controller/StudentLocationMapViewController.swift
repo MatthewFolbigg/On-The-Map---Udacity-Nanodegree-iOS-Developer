@@ -20,14 +20,15 @@ class StudentLocationMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBarButtons()
-        mapView.mapType = .standard
+        setupMap()
+        setMapCenter()
         askToLogin()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let annotations = createMapPins()
-        addToMap(annotations: annotations)
+        updateStudentLocations()
+        updateMapAnnotations()
         setButtonsForLoginStatus()
     }
     
@@ -36,6 +37,35 @@ class StudentLocationMapViewController: UIViewController {
         let destination = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         DispatchQueue.main.async {
             self.present(destination, animated: true, completion: nil)
+        }
+    }
+        
+    //MARK: Network Requests
+    @objc func updateStudentLocations() {
+        ParseApiClient.getStudentLocations(completion: handleGetStudentLocations(locationsArray:error:))
+    }
+    
+    func followLink(urlString: String) {
+        if urlString.contains("http") {
+            guard let url = URL(string: urlString) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            guard let url = URL(string: "https://\(urlString)") else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    //MARK: Network Completeion Handelers
+    func handleGetStudentLocations(locationsArray: [StudentLocation]?, error: Error?) -> Void {
+        guard let locations = locationsArray else {
+            //TODO: Handle this properly with passed error
+            print("error")
+            return
+        }
+        ParseApiClient.currentLocations = locations
+        DispatchQueue.main.async {
+            self.updateMapAnnotations()
+            self.setMapCenter()
         }
     }
     
@@ -81,23 +111,44 @@ class StudentLocationMapViewController: UIViewController {
     }
     
     @objc func addPinButtonDidTapped() {
-        print("Add Pin Tapped")
-        //TODO: Move to new VC for adding a Map Pin
-        guard let user = UdacityApiClient.currentUserData else { return }
-        guard let login = UdacityApiClient.currentLogin?.account else { return }
-        let testLocation = StudentLocation(firstName: user.firstName, lastName: user.lastName, longitude: 74.2, latitude: 7.42, locationString: "United Kingdom", url: "www.apple.com", identifierKey: login.key, objectID: "Test", createdAt: "Test", updatedAt: "Test")
-        ParseApiClient.postStudentLocation(studentLocation: testLocation) { (error) in
-            print("ADD COMPLETE")
-        }
+        let destination = (storyboard?.instantiateViewController(identifier: "AddPinNavController"))!
+        present(destination, animated: true, completion: nil)
     }
     
     //MARK: Map View
+    
+    func setupMap() {
+        mapView.mapType = .standard
+        mapView.isRotateEnabled = false
+    }
+    
+    func updateMapAnnotations() {
+        let annotations = createMapPins()
+        addToMap(annotations: annotations)
+    }
+    
     func addToMap(annotations: [MKPointAnnotation]) {
         for annotaion in annotations {
             mapView.addAnnotation(annotaion)
         }
     }
     
+    func setMapCenter() {
+        //Zooms map to most recently updated pin
+        let lastLocation = ParseApiClient.currentLocations?.first
+        var lastCoordinate = CLLocationCoordinate2D()
+        lastCoordinate.latitude = lastLocation?.latitude ?? 0
+        lastCoordinate.longitude = lastLocation?.longitude ?? 0
+    
+        var region = MKCoordinateRegion()
+        region.center = lastCoordinate
+        region.span = MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3)
+        
+        mapView.setRegion(region, animated: true)
+        
+    }
+    
+    //MARK: Map Annotations
     func createMapPins() -> [MKPointAnnotation] {
         var annotations: [MKPointAnnotation] = []
         guard let currentLocations = ParseApiClient.currentLocations else {
@@ -107,8 +158,8 @@ class StudentLocationMapViewController: UIViewController {
             let annotation = MKPointAnnotation()
             annotation.coordinate.latitude = location.latitude
             annotation.coordinate.longitude = location.longitude
-            annotation.title = "\(location.firstName) \(location.lastName)"
-            annotation.subtitle = location.locationString
+            annotation.title = "\(location.firstName)"
+            annotation.subtitle = location.url
             
             annotations.append(annotation)
         }
@@ -118,5 +169,33 @@ class StudentLocationMapViewController: UIViewController {
 
 extension StudentLocationMapViewController: MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var view = mapView.dequeueReusableAnnotationView(withIdentifier: "userPin") as? MKPinAnnotationView
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "userPin")
+            //MARK: Pin UI
+            view!.canShowCallout = true
+            view?.pinTintColor = InterfaceColours.red
+            
+            let button = UIButton(type: .detailDisclosure)
+            view?.rightCalloutAccessoryView = button
+            
+            let image = UIImageView(image: UIImage(systemName: "person.fill"))
+            image.tintColor = InterfaceColours.blue
+            view?.leftCalloutAccessoryView = image
+        } else {
+            view?.annotation = annotation
+        }
+        return view
+    }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if control == view.rightCalloutAccessoryView {
+            if let urlString = view.annotation?.subtitle {
+                followLink(urlString: urlString!)
+            }
+        }
+    }
 }
+

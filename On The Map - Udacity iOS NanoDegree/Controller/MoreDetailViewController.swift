@@ -37,7 +37,7 @@ class MoreDetailViewController: UIViewController {
         
         latLabel.text = String(studentLocation.latitude)
         longLabel.text = String(studentLocation.longitude)
-        locationLabel.text = studentLocation.locationString
+        locationLabel.text = studentLocation.createdAt
         urlLabel.text = studentLocation.url
         lastUpdateLabel.text = studentLocation.updatedAt
     }
