@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var skipButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
+    @IBOutlet var loginActivityIndicatior: UIActivityIndicatorView!
+    @IBOutlet var friendlyReminderLabel: UILabel!
     
     //MARK: Varibales
     
@@ -30,11 +32,16 @@ class LoginViewController: UIViewController {
     func login() {
         UdacityApiClient.removeCurrentLoginData()
         let user = createUserFromTextFields()
+        activiyIndicatorIs(active: true)
         UdacityApiClient.login(user: user, completion: handelLoginResponse(loginSuccess: error:))
     }
     
     //MARK: Network Completeion Handelers
     func handelLoginResponse(loginSuccess: Bool, error: Error?) -> Void {
+        activiyIndicatorIs(active: false)
+        
+        if let error = error { alertUserTo(error: error as NSError) }
+        
         if UdacityApiClient.currentLogin == nil {
             return //TODO: Handle login failure
         } else {
@@ -57,19 +64,18 @@ class LoginViewController: UIViewController {
         loginButton.setTitleColor(InterfaceColours.udacityBackground, for: .normal)
         skipButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
         signUpButton.setTitleColor(InterfaceColours.udacityBlue, for: .normal)
+        loginActivityIndicatior.alpha = 0
+        setFriendlyReminderLabel(active: false)
     }
         
     //MARK: Button Actions
     @IBAction func loginButtonDidTapped() {
+        if !checkForCredentials() {
+            alertNoCredentialEntered()
+            return
+        }
         resignAllTextFields()
         login()
-    }
-    
-    func performLoginSegue() {
-        passwordTextField.text = nil
-        //Is the a better way to do this?
-        //I was originally using a navigation controller with pop to root but that caused issues as all the tabs of the tab view controller were sharing a navigation controller
-        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func skipButtonDidTapped() {
@@ -87,8 +93,63 @@ class LoginViewController: UIViewController {
         print("Sign Up")
     }
     
-}
+    //MARK: Activity Indicator
+    func activiyIndicatorIs(active: Bool) {
+        //Animated Changes
+        UIView.animate(withDuration: 0.2) {
+            if active {
+                self.loginActivityIndicatior.alpha = 1
+            } else {
+                self.loginActivityIndicatior.alpha = 0
+            }
+        }
+        //Non Animated Changes
+        if active {
+            self.loginActivityIndicatior.startAnimating()
+        } else {
+            self.loginActivityIndicatior.stopAnimating()
+        }
+    }
 
+    //MARK: Login Helper Methods
+    func checkForCredentials() -> Bool {
+        let username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if username == "" || password == "" {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    func performLoginSegue() {
+        passwordTextField.text = nil
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func setFriendlyReminderLabel(active: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            if active {
+                self.friendlyReminderLabel.alpha = 1
+            } else {
+                self.friendlyReminderLabel.alpha = 0
+            }
+        }
+    }
+    
+    //MARK: Login Error User Alerts
+    func alertNoCredentialEntered() {
+        setFriendlyReminderLabel(active: true)
+    }
+    
+    func alertUserTo(error: NSError) {
+        let alertController = UIAlertController(title: error.domain, message: error.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+}
 //MARK: Text Fields
 extension LoginViewController: UITextFieldDelegate {
     

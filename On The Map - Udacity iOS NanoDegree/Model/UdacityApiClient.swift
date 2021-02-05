@@ -55,15 +55,15 @@ class UdacityApiClient {
         } catch {
             DispatchQueue.main.async {
                 completion(false, error)
+                print("Failed to encode login credentials to JSON data")
             }
-            //TODO: Handle error encoding data
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
-                //TODO: Handle no data returned from request
+                let noDataError = NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Failed to communicate with Udacity. Check your network connection."])
                 DispatchQueue.main.async {
-                    completion(false, error)
+                    completion(false, noDataError)
                 }
                 print("no data recived back from login put")
                 return
@@ -82,9 +82,9 @@ class UdacityApiClient {
                     completion(true, nil)
                 }
             } catch {
-                //TODO: Handle not able to decode user response
+                let incorrectLoginError = NSError(domain: "Login Failed", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Incorrect username and/or password. Please try again."])
                 DispatchQueue.main.async {
-                    completion(false, error)
+                    completion(false, incorrectLoginError)
                 }
                 print("not able to decode login response")
                 return
