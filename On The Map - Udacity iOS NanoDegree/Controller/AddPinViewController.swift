@@ -19,6 +19,9 @@ class AddPinViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var layerView: UIView!
  
+    //MARK: Variables
+    
+    
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +30,7 @@ class AddPinViewController: UIViewController {
     
     //MARK: Set UI
     func setUI() {
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        setTransparentNavigationBar()
         
         view.backgroundColor = .white
         layerView.backgroundColor = .white
@@ -41,6 +41,12 @@ class AddPinViewController: UIViewController {
         submitButton.backgroundColor = InterfaceColours.blue
         submitButton.setTitleColor(.white, for: .normal)
         
+    }
+    
+    func setTransparentNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
     }
     
     

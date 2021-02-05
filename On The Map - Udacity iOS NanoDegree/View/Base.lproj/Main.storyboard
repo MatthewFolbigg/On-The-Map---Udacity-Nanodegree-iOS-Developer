@@ -544,7 +544,7 @@
         <!--Navigation Controller-->
         <scene sceneID="g0a-2r-pun">
             <objects>
-                <navigationController storyboardIdentifier="AddPinNavController" automaticallyAdjustsScrollViewInsets="NO" id="c3n-UZ-aUe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddPinNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="c3n-UZ-aUe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B3G-Br-DyH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
