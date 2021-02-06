@@ -45,6 +45,7 @@ class StudentLocationMapViewController: UIViewController {
         ParseApiClient.getStudentLocations(completion: handleGetStudentLocations(locationsArray:error:))
     }
     
+    //MARK: Open URL
     func followLink(urlString: String) {
         if urlString.contains("http") {
             guard let url = URL(string: urlString) else { return }

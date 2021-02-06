@@ -10,14 +10,15 @@ import UIKit
 import MapKit
 
 class AddPinViewController: UIViewController {
-    
+
     //MARK: IB Outlets
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var mediaLinkTextField: UITextField!
     @IBOutlet var submitButton: UIButton!
     @IBOutlet var pinImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var postActivityController: UIActivityIndicatorView!
+    @IBOutlet var geocodeActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var cancelButton: UIBarButtonItem!
  
     //MARK: Variables
     
@@ -32,14 +33,12 @@ class AddPinViewController: UIViewController {
         var nsError: NSError {
             switch self {
             case .missingInput : return NSError(domain: "Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Make sure to enter a location and website"])
-            case .geocodeFailed : return NSError(domain: "Location Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to find a location from the eneterd text"])
-            case .networkError : return NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to post your location. Check your network connection"])
+            case .geocodeFailed : return NSError(domain: "Location Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to find a location that matches the eneterd text"])
+            case .networkError : return NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to find your location. Check your network connection"])
             case .generic : return NSError(domain: "Unknown Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Something is missing, please sign in again and try again"])
             }
-            
         }
     }
-    
     
     //MARK: Life Cycle
     override func viewDidLoad() {
@@ -50,13 +49,12 @@ class AddPinViewController: UIViewController {
     //MARK: Set UI
     func setUI() {
         setTransparentNavigationBar()
-        postActivityController.alpha = 0
+        geocodeActivityIndicator.alpha = 0
         pinImageView.tintColor = InterfaceColours.red
         
         submitButton.layer.cornerRadius = 10
         submitButton.backgroundColor = InterfaceColours.blue
         submitButton.setTitleColor(.white, for: .normal)
-        
     }
     
     func setTransparentNavigationBar() {
@@ -67,27 +65,23 @@ class AddPinViewController: UIViewController {
     
     
     //MARK: Create Student Location from Entered Text
-    func getStudentLocationFromTextFields(completion: @escaping () -> Void) {
+    func getStudentLocationFromTextFields(completion: @escaping (StudentLocation) -> Void) {
         activiyIndicatorIs(active: true)
         var mapItem: MKMapItem?
         let search = createLocationSearch()
         search.start { (response, error ) in
             if let error = error as NSError? {
                 if error.domain .contains("MK") {
-                    let mapError = Errors.geocodeFailed.nsError
-                    self.handelPostError(error: mapError)
+                    self.handelError(error: Errors.geocodeFailed.nsError)
                 } else {
-                    let networkError = Errors.networkError.nsError
-                    self.handelPostError(error: networkError)
+                    self.handelError(error: Errors.networkError.nsError)
                 }
                 return
             }
             guard let response = response else { return }
             mapItem = response.mapItems[0]
             guard let studentLocation = self.createStudentLocation(location: mapItem) else { return }
-            self.post(studentLocation: studentLocation) {() in
-                completion()
-            }
+            completion(studentLocation)
         }
     }
     
@@ -105,9 +99,7 @@ class AddPinViewController: UIViewController {
               let login = UdacityApiClient.currentLogin?.account,
               let userUrl = URL(string: self.mediaLinkTextField.text ?? "")
         else {
-            let error = Errors.generic.nsError
-            handelPostError(error: error)
-            activiyIndicatorIs(active: false)
+            handelError(error: Errors.generic.nsError)
             return nil
         }
        
@@ -126,27 +118,7 @@ class AddPinViewController: UIViewController {
         return studentLocation
     }
     
-    //MARK: POST Request
-    func post(studentLocation: StudentLocation, completion: @escaping () -> Void) {
-        print("Post Started")
-        ParseApiClient.postStudentLocation(studentLocation: studentLocation) { (error) in
-            print("ADD COMPLETE")
-            if let error = error {
-                self.handelPostError(error: error)
-                return
-            } else {
-                completion()
-            }
-            self.activiyIndicatorIs(active: true)
-        }
-    }
-    
     //MARK: Errors
-    func handelPostError(error: Error) {
-        activiyIndicatorIs(active: false)
-        alertUserTo(error: error as NSError)
-    }
-    
     func alertUserTo(error: NSError) {
         let alertController = UIAlertController(title: error.domain, message: error.localizedDescription, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -163,19 +135,22 @@ class AddPinViewController: UIViewController {
             return true
         }
     }
-    
-    func handelMissingInput() {
-        let error = Errors.missingInput.nsError
-        handelPostError(error: error)
+        
+    func handelError(error: NSError) {
+        activiyIndicatorIs(active: false)
+        alertUserTo(error: error)
     }
     
     
     //MARK: Button Actions
     @IBAction func submitButtonDidTapped() {
         resignAllTextFields()
-        if !checkForUserInput() { handelMissingInput() }
-        getStudentLocationFromTextFields() { () in
-            self.dismiss(animated: true, completion: nil)
+        if !checkForUserInput() { handelError(error: Errors.missingInput.nsError) }
+        getStudentLocationFromTextFields() { (postedLocation) in
+            self.activiyIndicatorIs(active: false)
+            let destination = self.storyboard?.instantiateViewController(identifier: "ConfirmPostViewController") as! ConfirmPostViewController
+            destination.createdLocation = postedLocation
+            self.navigationController?.pushViewController(destination, animated: true)
         }
     }
     
@@ -188,16 +163,18 @@ class AddPinViewController: UIViewController {
         //Animated Changes
         UIView.animate(withDuration: 0.2) {
             if active {
-                self.postActivityController.alpha = 1
+                self.geocodeActivityIndicator.alpha = 1
             } else {
-                self.postActivityController.alpha = 0
+                self.geocodeActivityIndicator.alpha = 0
             }
         }
         //Non Animated Changes
         if active {
-            self.postActivityController.startAnimating()
+            self.geocodeActivityIndicator.startAnimating()
+            cancelButton.isEnabled = false
         } else {
-            self.postActivityController.stopAnimating()
+            self.geocodeActivityIndicator.stopAnimating()
+            cancelButton.isEnabled = true
         }
     }
 }

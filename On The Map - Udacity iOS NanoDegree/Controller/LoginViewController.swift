@@ -109,6 +109,7 @@ class LoginViewController: UIViewController {
         //Non Animated Changes
         if active {
             self.loginActivityIndicatior.startAnimating()
+            
         } else {
             self.loginActivityIndicatior.stopAnimating()
         }

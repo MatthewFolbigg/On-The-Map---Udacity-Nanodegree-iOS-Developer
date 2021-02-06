@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F10C9BC25C9944C0062ED55 /* StudentLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */; };
 		1F10C9C325C996390062ED55 /* StudentLocationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */; };
+		1F85B51025CF3B4700280886 /* ConfirmPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85B50F25CF3B4700280886 /* ConfirmPostViewController.swift */; };
 		1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8A25C9B5D30062E572 /* Interface Colours.swift */; };
 		1F934C8E25C9C96F0062E572 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */; };
 		1FD78E9425CB3E3D00238291 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78E9325CB3E3D00238291 /* AccountViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		1F10C9BB25C9944C0062ED55 /* StudentLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsTableViewController.swift; sourceTree = "<group>"; };
 		1F10C9C225C996390062ED55 /* StudentLocationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationTableCell.swift; sourceTree = "<group>"; };
+		1F85B50F25CF3B4700280886 /* ConfirmPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPostViewController.swift; sourceTree = "<group>"; };
 		1F934C8A25C9B5D30062E572 /* Interface Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface Colours.swift"; sourceTree = "<group>"; };
 		1F934C8D25C9C96F0062E572 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		1FD78E9325CB3E3D00238291 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				1FD78E9625CB4D9100238291 /* StudentLocationMapViewController.swift */,
 				1FD78E9325CB3E3D00238291 /* AccountViewController.swift */,
 				1FD78EA525CD60D400238291 /* AddPinViewController.swift */,
+				1F85B50F25CF3B4700280886 /* ConfirmPostViewController.swift */,
 				1FDDDD3F25CAC2AD00B65AB0 /* MoreDetailViewController.swift */,
 			);
 			path = Controller;
@@ -231,6 +234,7 @@
 				1FD9FBCB25C8A53F00745C56 /* LoginViewController.swift in Sources */,
 				1FD78EA625CD60D400238291 /* AddPinViewController.swift in Sources */,
 				1FD9FBB525C8A14800745C56 /* AppDelegate.swift in Sources */,
+				1F85B51025CF3B4700280886 /* ConfirmPostViewController.swift in Sources */,
 				1FD78E9725CB4D9100238291 /* StudentLocationMapViewController.swift in Sources */,
 				1FD9FBB725C8A14800745C56 /* SceneDelegate.swift in Sources */,
 				1F934C8B25C9B5D30062E572 /* Interface Colours.swift in Sources */,

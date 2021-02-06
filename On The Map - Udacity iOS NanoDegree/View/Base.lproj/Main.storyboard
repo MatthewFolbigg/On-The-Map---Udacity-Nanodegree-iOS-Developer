@@ -85,8 +85,8 @@
                                     <action selector="signUpButtonDidTapped" destination="9xe-4A-hPH" eventType="touchUpInside" id="sUH-h0-BYk"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Qqn-G9-or2">
-                                <rect key="frame" x="188.5" y="567" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Qqn-G9-or2">
+                                <rect key="frame" x="197" y="567" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure to enter a username and password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFw-f0-o5t">
                                 <rect key="frame" x="76" y="422" width="262.5" height="14.5"/>
@@ -510,7 +510,7 @@
                                     <constraint firstAttribute="width" constant="180" id="uUE-33-n4A"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -530,8 +530,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pnD-ez-Chm">
-                                <rect key="frame" x="188.5" y="481" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pnD-ez-Chm">
+                                <rect key="frame" x="197" y="481" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ajB-zM-G08"/>
@@ -558,17 +558,85 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="rKj-9I-djH" id="cCY-3S-jYt"/>
+                        <outlet property="geocodeActivityIndicator" destination="pnD-ez-Chm" id="Xw5-bo-7Pr"/>
                         <outlet property="locationTextField" destination="7lr-4R-Odo" id="9QO-aH-pWS"/>
                         <outlet property="mediaLinkTextField" destination="7pt-Uj-NLd" id="ERm-B6-yEe"/>
                         <outlet property="pinImageView" destination="XJQ-8N-3Xq" id="nDR-Mf-rIA"/>
-                        <outlet property="postActivityController" destination="pnD-ez-Chm" id="hud-dZ-7S0"/>
                         <outlet property="submitButton" destination="ghc-Jt-XHa" id="OBY-gh-vF9"/>
                         <outlet property="titleLabel" destination="05x-wP-JB1" id="Rqu-hr-fNd"/>
+                        <segue destination="c6y-9u-3yO" kind="show" identifier="confirmAddSegue" id="too-Dh-aqx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Em-6Y-vQA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1410" y="-1043"/>
+        </scene>
+        <!--Confirm Post View Controller-->
+        <scene sceneID="rZH-D5-rtC">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmPostViewController" id="c6y-9u-3yO" customClass="ConfirmPostViewController" customModule="On_The_Map___Udacity_iOS_NanoDegree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="skK-o2-YeF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7u-D7-t9X" userLabel="Done Button">
+                                <rect key="frame" x="30" y="782" width="354" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jF5-iy-Kcg"/>
+                                </constraints>
+                                <state key="normal" title="Add to Map">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToMapButtonDidTapped" destination="c6y-9u-3yO" eventType="touchUpInside" id="WgQ-wU-aki"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kWI-wg-r9L">
+                                <rect key="frame" x="340" y="782" width="34" height="50"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iW9-Fq-eWv">
+                                <rect key="frame" x="30" y="98" width="354" height="654"/>
+                                <connections>
+                                    <outlet property="delegate" destination="c6y-9u-3yO" id="8cw-rE-igL"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="G1A-CZ-VdQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b7u-D7-t9X" firstAttribute="trailing" secondItem="kWI-wg-r9L" secondAttribute="trailing" constant="10" id="Hbn-1B-RjC"/>
+                            <constraint firstItem="kWI-wg-r9L" firstAttribute="leading" secondItem="b7u-D7-t9X" secondAttribute="trailing" constant="-44" id="QvE-VP-NEM"/>
+                            <constraint firstItem="iW9-Fq-eWv" firstAttribute="leading" secondItem="G1A-CZ-VdQ" secondAttribute="leading" constant="30" id="VbD-rW-QUq"/>
+                            <constraint firstItem="b7u-D7-t9X" firstAttribute="leading" secondItem="G1A-CZ-VdQ" secondAttribute="leading" constant="30" id="YmB-NK-kP4"/>
+                            <constraint firstItem="G1A-CZ-VdQ" firstAttribute="bottom" secondItem="b7u-D7-t9X" secondAttribute="bottom" constant="30" id="cW9-BO-Bsf"/>
+                            <constraint firstItem="b7u-D7-t9X" firstAttribute="bottom" secondItem="kWI-wg-r9L" secondAttribute="bottom" id="hDq-sT-YdI"/>
+                            <constraint firstItem="b7u-D7-t9X" firstAttribute="top" secondItem="kWI-wg-r9L" secondAttribute="top" id="kfX-KR-69y"/>
+                            <constraint firstItem="G1A-CZ-VdQ" firstAttribute="trailing" secondItem="b7u-D7-t9X" secondAttribute="trailing" constant="30" id="nLo-Bj-Lag"/>
+                            <constraint firstItem="G1A-CZ-VdQ" firstAttribute="trailing" secondItem="iW9-Fq-eWv" secondAttribute="trailing" constant="30" id="pkT-ge-Mun"/>
+                            <constraint firstItem="b7u-D7-t9X" firstAttribute="top" secondItem="iW9-Fq-eWv" secondAttribute="bottom" constant="30" id="v0x-2x-SyS"/>
+                            <constraint firstItem="iW9-Fq-eWv" firstAttribute="top" secondItem="G1A-CZ-VdQ" secondAttribute="top" constant="10" id="yam-RN-pMo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1vt-y4-aDr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5vS-ch-Wwi">
+                            <connections>
+                                <action selector="backButtonDidTapped" destination="c6y-9u-3yO" id="lT1-J7-maW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addToMapButton" destination="b7u-D7-t9X" id="m2z-Xr-mCl"/>
+                        <outlet property="cancelButton" destination="5vS-ch-Wwi" id="S2T-A2-bZK"/>
+                        <outlet property="mapView" destination="iW9-Fq-eWv" id="kEb-MP-E8N"/>
+                        <outlet property="postActivityController" destination="kWI-wg-r9L" id="YPN-sd-xSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoM-qW-gOr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507.24637681159425" y="-1043.3035714285713"/>
         </scene>
         <!--Map-->
         <scene sceneID="Nie-hG-ZKK">
@@ -639,6 +707,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

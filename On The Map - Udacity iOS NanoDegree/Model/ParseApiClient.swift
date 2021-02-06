@@ -41,7 +41,7 @@ class ParseApiClient {
         
         var nsError: NSError {
             switch self {
-            case .networkFailed : return NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Failed to communicate with Udacity. Check your network connection."])
+            case .networkFailed : return NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Failed to communicate with Locations server. Check your network connection."])
             case .unableToDecode : return NSError(domain: "Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to update locations. Please try again later"])
             case .unableToEncode : return NSError(domain: "Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to generate your pin. Please try again"])
             }
