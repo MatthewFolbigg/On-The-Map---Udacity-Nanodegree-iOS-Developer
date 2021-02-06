@@ -15,6 +15,7 @@ class ParseApiClient {
     enum Endpoints {
         static let baseUrl: String = "https://onthemap-api.udacity.com/v1/StudentLocation"
         static let queryOrderUpdateTime: String = "?order=-updatedAt"
+        static let queryLimit: String = "?order=-updatedAt"
         
         case getStudentLocations
         
@@ -26,7 +27,7 @@ class ParseApiClient {
         var urlString: String {
             switch self {
             case .getStudentLocations:
-                return Endpoints.baseUrl + Endpoints.queryOrderUpdateTime
+                return Endpoints.baseUrl + Endpoints.queryLimit + Endpoints.queryOrderUpdateTime 
                 
             }
         }
