@@ -38,21 +38,24 @@ class LoginViewController: UIViewController {
     
     //MARK: Network Completeion Handelers
     func handelLoginResponse(loginSuccess: Bool, error: Error?) -> Void {
+        if let error = error {
+            alertUserTo(error: error as NSError)
+            return
+        }
+        
+        guard let userID = UdacityApiClient.currentLogin?.account.key else {
+            //TODO: Handel this error
+            return
+        }
+        UdacityApiClient.getUserData(userID: userID, completeion: handelUserDataResposne(success:error:))
+    }
+    
+    func handelUserDataResposne(success: Bool, error: Error?) {
         activiyIndicatorIs(active: false)
-        
-        if let error = error { alertUserTo(error: error as NSError) }
-        
-        if UdacityApiClient.currentLogin == nil {
-            return //TODO: Handle login failure
+        if success  {
+            self.performLoginSegue()
         } else {
-            guard let userID = UdacityApiClient.currentLogin?.account.key else {
-                //TODO: Handel this error
-                return
-            }
-            print(userID)
-            UdacityApiClient.getUserData(userID: userID) { (error) in
-                self.performLoginSegue()
-            }
+            if let error = error { self.alertUserTo(error: error as NSError) }
         }
     }
     
@@ -67,7 +70,7 @@ class LoginViewController: UIViewController {
         loginActivityIndicatior.alpha = 0
         setFriendlyReminderLabel(active: false)
     }
-        
+    
     //MARK: Button Actions
     @IBAction func loginButtonDidTapped() {
         if !checkForCredentials() {
@@ -128,6 +131,7 @@ class LoginViewController: UIViewController {
     }
     
     func setFriendlyReminderLabel(active: Bool) {
+        //Reminds user to add both a password and username if one of the text fields is empty
         UIView.animate(withDuration: 0.2) {
             if active {
                 self.friendlyReminderLabel.alpha = 1

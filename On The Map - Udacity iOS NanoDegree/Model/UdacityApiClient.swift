@@ -40,6 +40,20 @@ class UdacityApiClient {
         }
     }
     
+    //MARK: Errors
+    enum Errors {
+        
+        case networkFailed
+        case incorrectLoginDetails
+        
+        var nsError: NSError {
+            switch self {
+            case .networkFailed : return NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Failed to communicate with Udacity. Check your network connection."])
+            case .incorrectLoginDetails : return NSError(domain: "Login Failed", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Incorrect username and/or password. Please try again."])
+            }
+        }
+    }
+    
     //MARK: Login POST Request
     static func login(user: UdacityUserCredentials, completion: @escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: EndPoints.login.url)
@@ -61,7 +75,7 @@ class UdacityApiClient {
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
-                let noDataError = NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Failed to communicate with Udacity. Check your network connection."])
+                let noDataError = Errors.networkFailed.nsError
                 DispatchQueue.main.async {
                     completion(false, noDataError)
                 }
@@ -82,7 +96,7 @@ class UdacityApiClient {
                     completion(true, nil)
                 }
             } catch {
-                let incorrectLoginError = NSError(domain: "Login Failed", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Incorrect username and/or password. Please try again."])
+                let incorrectLoginError = Errors.incorrectLoginDetails.nsError
                 DispatchQueue.main.async {
                     completion(false, incorrectLoginError)
                 }
@@ -94,7 +108,7 @@ class UdacityApiClient {
     }
     
     //MARK: User Data GET Request
-    static func getUserData(userID: String, completeion: @escaping (Error?) -> Void) {
+    static func getUserData(userID: String, completeion: @escaping (Bool, Error?) -> Void) {
         print("URL: \(EndPoints.userData(userID).url)")
         let task = URLSession.shared.dataTask(with: EndPoints.userData(userID).url) { (data, response, error) in
             
@@ -113,7 +127,7 @@ class UdacityApiClient {
                 let userData = try decoder.decode(UdacityUserData.self, from: newData)
                 self.currentUserData = userData
                 DispatchQueue.main.async {
-                    completeion(error)
+                    completeion(true, error)
                 }
             } catch {
                 //TODO: Handle Error Here

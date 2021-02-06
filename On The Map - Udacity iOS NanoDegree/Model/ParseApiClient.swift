@@ -32,15 +32,32 @@ class ParseApiClient {
         }
     }
     
+    //MARK: Errors
+    enum Errors {
+        
+        case networkFailed
+        case unableToDecode
+        case unableToEncode
+        
+        var nsError: NSError {
+            switch self {
+            case .networkFailed : return NSError(domain: "Network Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Failed to communicate with Udacity. Check your network connection."])
+            case .unableToDecode : return NSError(domain: "Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to update locations. Please try again later"])
+            case .unableToEncode : return NSError(domain: "Error", code: 1, userInfo: [ NSLocalizedDescriptionKey: "Unable to generate your pin. Please try again"])
+            }
+        }
+    }
+    
     //MARK: GET Resquests
     class func getStudentLocations(completion: @escaping ([StudentLocation]?, Error?) -> Void) {
         let endpoint = Endpoints.getStudentLocations.url
         let task = URLSession.shared.dataTask(with: endpoint) { (data, response, error)
             in
             guard let data = data else {
-                //TODO: Handle failure to get response here
-                print("failure to get response from getStudentLocations")
-                if let error = error { print(error) }
+                let networkError = Errors.networkFailed.nsError
+                DispatchQueue.main.async {
+                    completion(nil, networkError)
+                }
                 return
             }
             let decoder = JSONDecoder()
@@ -52,9 +69,10 @@ class ParseApiClient {
                     completion(studentLocations, nil)
                 }
             } catch {
-                //TODO: Handle failure to decode here (Unexpected response object)
-                print("failure to decode to StudentLocationsResults")
-                print(error)
+                let decodeError = Errors.unableToDecode.nsError
+                DispatchQueue.main.async {
+                    completion(nil, decodeError)
+                }
             }
         }
         task.resume()
@@ -71,16 +89,20 @@ class ParseApiClient {
             let studentLocationJSON = try encoder.encode(studentLocation)
             request.httpBody = studentLocationJSON
         } catch {
-            print(error)
-            print("Unable to encode JSON")
-            //TODO: Handel this error
+            let encodeError = Errors.unableToEncode.nsError
+            DispatchQueue.main.async {
+                completion(encodeError)
+            }
+            return
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if data == nil {
-                //TODO: Handel this error
-                print("No data returned")
+                let networkError = Errors.networkFailed.nsError
+                DispatchQueue.main.async {
+                    completion(networkError)
+                }
                 return
             } else {
                 DispatchQueue.main.async {

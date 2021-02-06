@@ -37,8 +37,10 @@ class StudentLocationsTableViewController: UITableViewController {
     //MARK: Network Completeion Handelers
     func handleGetStudentLocations(locationsArray: [StudentLocation]?, error: Error?) -> Void {
         guard let locations = locationsArray else {
-            //TODO: Handle this properly with passed error
-            print("error")
+            if let error = error {
+                tableView.refreshControl?.endRefreshing()
+                alertUserTo(error: error as NSError)
+            }
             return
         }
         ParseApiClient.currentLocations = locations
@@ -46,6 +48,14 @@ class StudentLocationsTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }
+    }
+    
+    //MARK: Error
+    func alertUserTo(error: NSError) {
+        let alertController = UIAlertController(title: error.domain, message: error.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
     }
     
     //MARK: Bar Buttons
